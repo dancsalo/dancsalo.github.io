@@ -1,0 +1,11 @@
+---
+layout: post
+comments: true
+title:  "Deep Generative Models for Generalization"
+excerpt: "From VAEs to GANs, deep generative model research has taken off at a rapid pace in the past 3 years. How can we leverage these models to increase our ability to generalize from training data to test data?"
+date:   2017-08-08 08:00:00
+mathjax: true
+---
+
+
+This is a long overdue blog post on Reinforcement Learning (RL). RL is hot! You may have noticed that computers can now automatically [learn to play ATARI games](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html) (from raw game pixels!), they are beating world champions at [Go](http://googleresearch.blogspot.com/2016/01/alphago-mastering-ancient-game-of-go.html), simulated quadrupeds are learning to [run and leap](https://www.cs.ubc.ca/~van/papers/2016-TOG-deepRL/index.html), and robots are learning how to perform [complex manipulation tasks](http://www.bloomberg.com/features/2015-preschool-for-robots/) that defy explicit programming. It turns out that all of these advances fall under the umbrella of RL research. I also became interested in RL myself over the last ~year: I worked [through Richard Sutton's book](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html), read through [David Silver's course](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html), watched [John Schulmann's lectures](https://www.youtube.com/watch?v=oPGVsoBonLM), wrote an [RL library in Javascript](http://cs.stanford.edu/people/karpathy/reinforcejs/), over the  summer interned at DeepMind working in the DeepRL group, and most recently pitched in a little with the design/development of [OpenAI Gym](https://gym.openai.com/), a new RL benchmarking toolkit. So I've certainly been on this funwagon for at least a year but until now I haven't gotten around to writing up a short post on why RL is a big deal, what it's about, how it all developed and where it might be going.

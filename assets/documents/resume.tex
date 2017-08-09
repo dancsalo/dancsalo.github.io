@@ -1,0 +1,160 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Graduate Curriculum Vitae
+% LaTeX Template
+% Version 1.1 (9/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Rensselaer Polytechnic Institute (http://www.rpi.edu/dept/arc/training/latex/resumes/)
+%
+% Important note:
+% This template requires the res.cls file to be in the same directory as the
+% .tex file. The res.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[resmargin, 11pt]{resume_style_class} % Use the res.cls style, the font size can be changed to 11pt or 12pt here
+
+\topmargin=-0.5in
+\oddsidemargin -.4in
+
+\usepackage{fontspec}
+
+\renewcommand{\sectionfont}{\bf\large\fontspec{Fontin}}
+
+\newenvironment{myfont}{\fontspec{Fontin}\selectfont}{\par}
+\DeclareTextFontCommand{\textmyfont}{\myfont}
+
+\setlength{\textheight}{10.5in}
+
+\usepackage{tabularx}
+
+\newcommand\textline[3]{%
+  \hspace{-\hoffset} \parbox{0.5\textwidth}{\raggedright \Huge \usefont{OT1}{phv}{b}{n} #1 \par \normalsize \normalfont}%
+  \parbox{.333\textwidth}{\raggedleft\texttt{#3}}\par\smallskip%
+}
+
+\newenvironment{outline}
+  {\begin{list}{}{\setlength{\leftmargin}{30pt}\setlength\itemsep{-2pt}}}
+  {\end{list}}
+  
+\newenvironment{outline-cond}
+  {\begin{list}{}{
+  \setlength{\leftmargin}{30pt}
+  \setlength\topsep{-10pt}
+  \setlength\itemindent{-30pt}
+  }}
+  {\end{list}}
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND ADDRESS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}[t][1cm][b]{0.3\resumewidth}
+\hspace{-\hoffset}\raggedright \Huge \usefont{OT1}{phv}{b}{n} Dan Salo \normalsize
+\end{minipage}
+\begin{minipage}[t][1cm][b]{0.5\resumewidth}
+\footnotesize
+\raggedleft \texttt{604 Massey Avenue Durham, NC 27701} \\  \texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm}  \texttt{dancsalo.github.io}
+\end{minipage}
+
+\smallskip
+
+\moveleft\hoffset\vbox{\hrule width\resumewidth height 2pt}% Horizontal line after name; adjust line thickness by changing the '1pt'
+
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{resume}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{EDUCATION}
+
+\textmyfont{M.S. in Engineering}, Duke University, GPA: 3.80 \hfill 2016
+\begin{outline}
+\item Advisor: Dr. Nimmi Ramanjuam (BME), Dr. Larry Carin (ECE)
+\end{outline}
+
+\textmyfont{B.Sc. in Biomedical Engineering}, NC State University, GPA: 3.94 \hfill 2014
+\begin{outline}
+\item Bioinstrumentation Concentration. Minor in Piano Performance.
+\end{outline}
+ 
+ 
+%----------------------------------------------------------------------------------------
+%	PROFESSIONAL EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+ 
+\section{WORK \\ EXPERIENCE}
+\textmyfont{Data Scientist}, Automated Insights \hfill 2017 - Pres.
+\begin{outline}
+\item[$\bullet$\hspace{0.1cm}]  Adapting and implementing machine/deep learning solutions to improve the generation of personalized content from data in the Wordsmith web app.
+\item[$\bullet$\hspace{0.1cm}]  Text CNNs, LSTMs, Sentence Vectors, N-Gram Models, SVMs, Topic Modeling
+\end{outline} 
+ 
+\section{PROJECTS}
+
+\textmyfont{Deep Learning for Threat Detection}, Duke University, Dr. Larry Carin \hfill 2016 - 2017
+\begin{outline}
+\item[$\bullet$\hspace{0.1cm}] Created a semi-supervised, multi-view region-based CNN algorithm for threat detection in x-ray scans of airplane luggage using Python and TensorFlow.
+\item[$\bullet$\hspace{0.1cm}] First implentation of handgun detection in x-ray images, will deploy in 2018.
+\end{outline}
+
+\textmyfont{Diagnostic Cancer Imaging}, Duke University, Dr. Nimmi Ramanujam \hfill 2014 - 2016
+\begin{outline}
+\item[$\bullet$\hspace{0.1cm}] Designed a multispectral imaging system to predict malignancy of breast cancer margins. Analysis and Monte-Carlo ray tracing in Matlab and \textit{Python}.
+\item[$\bullet$\hspace{0.1cm}]  Achieved an AUC of 0.72 with a random forest implementation.
+\end{outline}
+
+\textmyfont{Home Health Monitoring}, NC State University, Dr. Andrew DiMeo \hfill 2013 - 2014
+\begin{outline}
+\item[$\bullet$\hspace{0.1cm}]  Invented and produced a wearable device to detect pulmonary edema in patients with congestive heart failure. Embedded system filtering in C++.
+\item[$\bullet$\hspace{0.1cm}]  Earned first place at joint NC State/UNC Senior Design Competition.
+\end{outline}
+
+
+\section{TECHNICAL \\ SKILLS}
+\begin{outline-cond} 
+\item \textmyfont{Programming Languages:}  Python (TensorFlow), R, \LaTeX, Bash, HTML5, CSS, C/C++
+\item \textmyfont{Machine Learning:}
+Neural networks, support vector machines, semi-supervised learning, stochastic optimization, clustering, tree-based methods
+\item \textmyfont{Statistical Methods:}
+Bayesian inference, regression models, hierarchical models, hypothesis testing, dimensionality reduction, matrix factorizations
+\item \textmyfont{Selected Coursework:} 
+ Linear Systems, Digital Signal Processing, Numerical Linear Algebra, Vector Spaces and Applications, Bayesian Statistics, Multivariate Analysis
+\end{outline-cond}
+
+%----------------------------------------------------------------------------------------
+%	EXTRA-CURRICULAR ACTIVITIES SECTION
+%----------------------------------------------------------------------------------------
+
+\section{OUTREACH}
+\raggedright 
+\textmyfont{High School Tutor}, Student U, Durham, NC. \hfill 2015 - Pres. \\
+\textmyfont{FIRST Lego Robotics Coach}, Student U, Durham, NC. \hfill 2014 - 2015 \\
+\textmyfont{Engineering Ambassador}, NC State University.\hfill 2011 - 2013  
+
+%----------------------------------------------------------------------------------------
+\section{HONORS}
+NSF GRFP Honorable Mention (2016),
+James B. Duke Fellowship (2014),
+NC State Goldwater Nomination (2013),
+NC State Caldwell Fellow (2010)
+\end{resume}
+\end{document}
