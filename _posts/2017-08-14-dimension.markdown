@@ -2,16 +2,17 @@
 layout: post
 comments: true
 title:  "High-Dimensional, Imbalanced Datasets for Classification"
-excerpt: "PCA, SVD, and t-SNE can work wonders when working with complex datasets."
+excerpt: "PCA, SVD, and t-SNE can work wonders when wrangling with complex datasets."
 date:   2017-08-14 12:00:00
 mathjax: true
 ---
+**Check out the [Jupyter Notebook](https://github.com/dancsalo/dancsalo.github.io/blob/master/assets/dimension/dim_reduce.ipynb) associated with this post!**
 
-The task of classification involves assigning every sample in a dataset to a specific category (or multiple categories), such as designating incoming emails as spam or not spam or labeling an image with its [ImageNet](http://www.image-net.org/challenges/LSVRC/) category. An imbalanced dataset means that the classes are not represented equally by the data, such as a 75:1 ratio between legitimate and spam emails. A high-dimensional dataset means each sample contains many dimensions, such as mammograms or large corpus of documents.
+The task of classification involves assigning every sample in a dataset to a specific category (or multiple categories), such as designating incoming emails as spam or not spam or labeling an image from the internet with its [ImageNet](http://www.image-net.org/challenges/LSVRC/) category. An imbalanced dataset means that the classes are not represented equally by the data, such as a 75:1 ratio between mammograms of normal breast tissue and those containing cancerous tumors. A high-dimensional dataset means each sample contains many dimensions, such as mass spectrometry data or a large corpus of documents.
 
-In this blog post, we will investigate how dimensionality reduction can facilitate the training of a machine learning classification algorithm on a high-dimensional, imbalanced dataset. For tips and tricks specific to dealing with class imbalance, check out this [blog post](http://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/).
+In this blog post, we will investigate how dimensionality reduction can facilitate the classification of a high-dimensional, imbalanced dataset. For tips and tricks specific to class imbalance, check out this [blog post](http://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/).
 
-In this paper, we will use a grayscale handwritten digits dataset, referred to as [MNIST](https://www.tensorflow.org/get_started/mnist/beginners), which contains 55,0000 training images and 10,000 testing images and is a subset
+We will be working with a grayscale handwritten digits dataset, referred to as [MNIST](https://www.tensorflow.org/get_started/mnist/beginners), which contains 55,0000 training images and 10,000 testing images and is a subset
 of a larger dataset produced by [NIST](https://www.nist.gov/). Each image is 28 x 28 or 784-dimensional. We will consider the task of classifying fours and fives but will only include 50 fives from the dataset to simulate class imbalance.
 
 <div class="imgcap">
@@ -89,23 +90,7 @@ The `sklearn` [implementation](http://scikit-learn.org/stable/modules/generated/
 
 ### Data Exploration and Classification
 
-By plotting the histograms of the pixel values from all of the MNIST images, we learn that the data distribution are **non-Gaussian** due to the large number of 1's and 0's.
-
-<div class="imgcap">
-<img src="/assets/dimension/histogram.png">
-<div class="thecap">The majority of the pixel values are either 1 or 0 in MNIST images.</div>
-</div>
-
-We locate **uniformative pixels** the dimensions with a variance of close to 0 across the images of fours and fives were removed, which totaled to 240 of 784.
-
-We also determine the presence of **multicolinearity** by examining the training matrix:
-
-<div class="imgcap">
-<img src="/assets/dimension/multicol.png">
-<div class="thecap">The visible pattern within this matrix suggests that many of the rows columns are highly correlated.</div>
-</div>
-
-We can also show that **applying PCA to the entire dataset** balanced with equal numbers of 4's and 5's yields good class separation; however, applying the same technique to the imbalanced dataset shows no separation.
+We can show that **applying PCA to the entire dataset** balanced with equal numbers of 4's and 5's yields good class separation; however, applying the same technique to the imbalanced dataset shows no separation.
 
 <div class="imgcap">
 <img src="/assets/dimension/pca_all.png">
@@ -131,9 +116,8 @@ If we apply t-SNE to the SVD vectors, we see nice clustering of the fives. Feedi
 <img src="/assets/dimension/tsne.png">
 </div>
 
-**Linear Discriminant Analysis** is related to PCA but is a supervised linear technique
-that generates components that maximize the between group variance and minimize the within group variance given by. If we apply it to the SVD image vectors, we get an AUC of *0.902*... not bad for a linear classifier!
+By tuning a threshold on the SVD vectors transformed by PCA, we can get an AUC of *0.902*... not bad for a linear classifier!
 
 ### Conclusion
 
-Dimensionality reduction techniques can simply some classification problems to the point that only a linear classifier is needed to get a decent AUC. They can also facilitate the exploration of class imbalanced datasets and the selection of the proper corrections. These techniques should be the first line of defense against any challenging classification task!
+Dimensionality reduction techniques can simply some binary classification problems to the point that only a linear classifier is needed to get a decent AUC, but for harder problems they can generate inputs to more complicated classifiers (i.e. neural networks and SVMs) that will improve the results. These techniques can also facilitate the exploration of class imbalanced datasets and the selection of the proper corrections. They should be the first line of defense against any challenging classification task!
