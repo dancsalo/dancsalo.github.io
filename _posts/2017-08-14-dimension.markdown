@@ -6,10 +6,6 @@ title:  "High-Dimensional, Imbalanced Datasets for Classification"
 description: "PCA, SVD, and t-SNE can work wonders when wrangling with complex datasets."
 date:   2017-08-14 5:00:00
 mathjax: true
-sitemap:
-    priority: 0.7
-    changefreq: 'monthly'
-    lastmod: 2017-08-14T02:30:00-05:00
 ---
 **Check out the [Jupyter Notebook](https://github.com/dancsalo/dancsalo.github.io/blob/master/assets/dimension/dim_reduce.ipynb) associated with this post!**
 

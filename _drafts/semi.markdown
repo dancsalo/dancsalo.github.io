@@ -6,10 +6,6 @@ title:  "Deep Generative Models for Generalization"
 description: "From VAEs to GANs, deep generative model research has taken off at a rapid pace in the past 3 years. How can we leverage these models to increase our ability to generalize from training data to test data in a classification task?"
 date:   2017-08-08 08:00:00
 mathjax: true
-sitemap:
-    priority: 0.7
-    changefreq: 'monthly'
-    lastmod: 2017-08-14T02:30:00-05:00
 ---
 
 #### Classification

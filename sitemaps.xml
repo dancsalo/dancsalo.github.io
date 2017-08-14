@@ -1,4 +1,3 @@
-
 ---
 layout: null
 sitemap:
@@ -18,7 +17,7 @@ sitemap:
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
       {% endif %}
       {% if post.sitemap.changefreq %}
-        <changefreq>{{ post.sitemap.changefreq }}</changefreq>
+        <changefreq>{{ post.sitemp.changefreq }}</changefreq>
       {% else %}
         <changefreq>monthly</changefreq>
       {% endif %}

@@ -2,6 +2,11 @@
 layout: page
 title: About Me
 permalink: /about/
+sitemap:
+  lastmod:
+  priority: 0.75
+  changefreq: monthly
+  exclude: 'no'
 ---
 
 I am **Dan Salo**: follower of [Jesus](https://www.esv.org/John+4/), husband to the lovely [Amy](http://studentudurham.org/team), and dedicated member of the [Summit Church](http://www.summitrdu.com/) in [Durham, North Carolina](https://www.durham-nc.com/media/accolades/). I also like mathematics and programming.
