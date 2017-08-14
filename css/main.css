@@ -6,14 +6,25 @@
   padding: 0;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.t-body {
+  width: 80%;
+  display: table;
+  border-style: none;
 }
-table td {
-  padding: 15px;
+
+.t-head {
+  font-size: x-large;
+  padding: `5px;
 }
-.table-above {
+
+.t-row {
+  display: flex;
+}
+
+.t-cell {
+  flex: 1;
+  padding: 10px;
+  vertical-align: middle;
   border-bottom: 1px solid #e8e8e8;
 }
 
@@ -25,6 +36,10 @@ body {
   line-height: 1.5;
   font-weight: 300;
   background-color: #fdfdfd;
+}
+
+img {
+    max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
