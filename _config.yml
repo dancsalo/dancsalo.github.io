@@ -1,8 +1,6 @@
 # Site settings
 title: Dan Salo's Blog
-email:
 description: "An assortment of elegant Math and simple Code."
-baseurl: ""
 url: "http://dancsalo.github.io"
 twitter_username: dancsalo
 github_username:  dancsalo
@@ -16,3 +14,18 @@ kramdown:
   input: GFM
   auto_ids: true
   syntax_highlighter: rouge
+
+# SEO
+twitter:
+  username: dancsalo
+social:
+  name: Dan Salo
+  links:
+    - https://twitter.com/dancsalo
+    - https://www.facebook.com/dancsalo
+    - https://www.linkedin.com/in/dancsalo
+    - https://github.com/dancsalo
+
+# Gems
+gems:
+- jekyll-seo-tag
