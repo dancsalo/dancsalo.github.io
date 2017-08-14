@@ -27,6 +27,8 @@ social:
     - https://www.facebook.com/dancsalo
     - https://www.linkedin.com/in/dancsalo
     - https://github.com/dancsalo
+  webmaster_verifications:
+    google: google9b6f9ea288c8e71c.html
 
 # Gems
 gems:
