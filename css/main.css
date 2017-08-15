@@ -7,25 +7,40 @@
 }
 
 .t-body {
-  width: 80%;
   display: table;
   border-style: none;
 }
 
 .t-head {
   font-size: x-large;
-  padding: `5px;
+  padding: 5px;
 }
 
 .t-row {
   display: flex;
 }
 
-.t-cell {
-  flex: 1;
+.t-row-border {
+  display: flex;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.t-img {
+  float: left;
+  width: 33%;
   padding: 10px;
   vertical-align: middle;
-  border-bottom: 1px solid #e8e8e8;
+}
+
+.t-cell {
+  width: 67%;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+@media screen and (max-width:800px) {
+  .t-row { display: inline-block;  }
+  .t-row-border { display: inline-block;  }
 }
 
 html, body { height: 100%; }
