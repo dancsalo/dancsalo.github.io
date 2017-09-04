@@ -2,8 +2,8 @@
 layout: post
 comments: true
 author: Dan Salo
-title:  "High-Dimensional, Imbalanced Datasets for Classification"
-description: "PCA, SVD, and t-SNE can work wonders when wrangling with complex datasets."
+title:  "Dimensionality Reduction for Classification"
+description: "PCA, SVD, and t-SNE can work wonders when wrangling with high-dimensional, imbalanced datasets."
 date:   2017-08-14 5:00:00
 mathjax: true
 ---
