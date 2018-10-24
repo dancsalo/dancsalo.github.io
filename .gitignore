@@ -8,3 +8,10 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+
+# Python
+.idea/
+
+# LaTeX
+*.aux
+*.out
