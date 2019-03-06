@@ -11,9 +11,9 @@ sitemap:
 
 I am **Dan Salo**: follower of [Jesus](https://www.esv.org/John+4/), husband to the lovely [Amy](http://studentudurham.org/team), and dedicated member of the [Summit Church](http://www.summitrdu.com/) in [Durham, North Carolina](https://www.durham-nc.com/media/accolades/). I also like mathematics and programming.
 
-I currently work at <a href="https://automatedinsights.com/">Automated Insights</a> as a Data Scientist where I am implementing and adapting state-of-the-art techniques in deep learning and machine learning to improve the generation of personalized content from data in the Wordsmith web app.
+I currently work at <a href="https://automatedinsights.com/">Automated Insights</a> as a Senior Data Scientist where I am implementing and adapting state-of-the-art techniques in deep learning and machine learning to improve the generation of personalized content from data in the Wordsmith web app.
 
-## Projects
+## Student Projects
 
 <div class="t-body">
   <div class="t-row"><div class="t-head">Image Processing</div></div>
