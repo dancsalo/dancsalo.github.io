@@ -11,7 +11,7 @@ sitemap:
 
 I am **Dan Salo**: follower of [Jesus](https://www.esv.org/John+4/), husband to the lovely [Amy](http://studentudurham.org/team), and dedicated member of the [Summit Church](http://www.summitrdu.com/) in [Durham, North Carolina](https://www.durham-nc.com/media/accolades/). I also like mathematics and programming.
 
-I currently work at <a href="https://automatedinsights.com/">Automated Insights</a> as a Senior Data Scientist where I am implementing and adapting state-of-the-art techniques in deep learning and machine learning to improve the generation of personalized content from data in the Wordsmith web app.
+I currently work at <a href="https://www.proofpoint.com/us">Proofpoint</a> as a Data Scientist where I am creating new NLP and CV solutions to improve our cybersecurity classifier performance on social media content.
 
 ## Student Projects
 
@@ -19,13 +19,12 @@ I currently work at <a href="https://automatedinsights.com/">Automated Insights<
   <div class="t-row"><div class="t-head">Image Processing</div></div>
   <div class="t-row">
     <div class="t-img"><a href="/assets/about/bag_real.png" class="highslide" onclick="return hs.expand(this)"><img src="/assets/about/bag_real.png" alt="Highslide JS" /></a></div>
-    <div class="t-cell">The <a href="https://arxiv.org/pdf/1506.01497.pdf">Faster R-CNN</a> framework is the current state-of-the-art in object detection. I implemented an adaptation for the <a href="https://www.tsa.gov/">TSA</a> while a graduate student in the laboratory of <a href="http://people.ee.duke.edu/~lcarin/">Larry
-    Carin</a> at Duke University to detect sharp objects and handguns in X-ray images of carry-on luggage.</div>
+    <div class="t-cell">As a graduate student in the <a href="http://people.ee.duke.edu/~lcarin/">Carin lab</a>, I helped to implement an object detection algorithm for the <a href="https://www.tsa.gov/">TSA</a> to detect threatening objects in X-ray images of carry-on luggage.</div>
   </div>
   <div class="t-row"><div class="t-head">Biomedical Devices</div></div>
   <div class="t-row">
     <div class="t-img"><a href="/assets/about/qdri_leds.png" class="highslide" onclick="return hs.expand(this)"><img src="/assets/about/qdri_leds.png" alt="Highslide JS" /></a></div>
-    <div class="t-cell">The <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0127525">Quantitative Diffuse Reflectance Imaging System</a> provides Breast Cancer surgeons with intraoperative feedback about excised tumor margins. I designed, constructed, verified, and validated a novel and scalable LED light source for the system while a graduate student in the laboratory of <a href="https://nimmi.bme.duke.edu/">Nimmi Ramanujam</a> at Duke University.</div>
+    <div class="t-cell">The <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0127525">Quantitative Diffuse Reflectance Imaging System</a> provides Breast Cancer surgeons with intraoperative feedback about excised tumor margins. I designed, constructed, verified, and validated a novel and scalable LED light source for the system while a graduate student in the laboratory of <a href="https://nimmi.bme.duke.edu/">Nimmi Ramanujam</a>.</div>
   </div>
   <div class="t-row-border"></div>
   <div class="t-row">
