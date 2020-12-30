@@ -1,0 +1,152 @@
+I"c4<p>The application to the <a href="https://hackathon.nba.com/">2017 NBA Hackathon</a> featured several interesting questions, two of which I would like to unpack in this post:</p>
+
+<ol>
+  <li><strong>How likely is a team to lose consecutive games in an 82-game season?</strong></li>
+  <li><strong>How much money is the NBA likely to generate from playoff ticket sales?</strong></li>
+</ol>
+
+<p>All of the R code for both questions can viewed in <a href="https://github.com/dancsalo/NBA-Analytics">this repo</a>.</p>
+
+<h2 id="probability-of-consecutive-losses">Probability of Consecutive Losses</h2>
+
+<p>Imagine that the Warriors have a $80$% of winning each game during their 82-game regular season. What’s the chance they don’t lose back-to-back games? This was a popular question after <a href="http://bleacherreport.com/articles/2649248-kevin-durant-latest-news-rumors-speculation-surrounding-free-agent-star">Kevin Durant joined the Warriors</a> before the 2016-2017 season.</p>
+
+<h3 id="approximation-approach">Approximation Approach</h3>
+<p>Monte Carlo simulations are a simple method to approximate probability distributions; once you have an approximation of a distribution, generating a point estimate, such as an expected value, is straight forward. The plot below shows the first $10000$ samples from such a simulation, which will eventually converge to the expected value of the distribution.</p>
+
+<div>
+    <a href="https://plot.ly/~dancsalo/11/?share_key=pkc45GkSKj8bOhjINJFYMh" target="" title="mc-simul-consec-losses" style="display: block; text-align: center;"><img src="https://plot.ly/~dancsalo/11.png?share_key=pkc45GkSKj8bOhjINJFYMh" alt="mc-simul-consec-losses" style="max-width: 100%;width: 600px;" width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="dancsalo:11" sharekey-plotly="pkc45GkSKj8bOhjINJFYMh" src="https://plot.ly/embed.js" async=""></script>
+</div>
+
+<p>The simulation predicts that the Warriors have a $\underline{5.041\%}$ chance of not losing consecutive games (<a href="https://github.com/dancsalo/NBA-Analytics/blob/master/consecutive-losses/consecutive-losses.Rmd">code</a>). It would would be helpful to know the precision of this approximation. The variance of an expected value from a Monte Carlo simulation, with samples ${\phi_1, …, \phi_n}$, is described by:</p>
+
+<script type="math/tex; mode=display">\text{Var}_{MC}[\overline{\phi}] = \frac{\text{Var}[\phi]}{S}</script>
+
+<p>We can compute $\text{Var}[\phi]$ since our samples are drawn from a Binomial distribution</p>
+
+<script type="math/tex; mode=display">Var[\phi] = np(1 - p) = 82 * 0.8 (1 - 0.8) = 13.12</script>
+
+<p>With $200000$ samples, $Var_{MC}[\overline{\phi}] = 6.56 \times 10^{-5}$, which means we can expect the true value to be contained within the following interval for 95% of all MC simulations:</p>
+
+<script type="math/tex; mode=display">\overline{\phi} \pm 2 \sqrt{Var_{MC}[\overline{\phi}]} = 5.041\% \pm 1.62\% = (3.421\%, 6.661\%)</script>
+
+<p>Now let’s calculate the exact answer and see how our approximation compares.</p>
+
+<h3 id="exact-approach">Exact Approach</h3>
+<p>Let’s consider three distinct groups of games and their total counts for the Warriors 82-game season, where $l$ represents the number of losses:</p>
+
+<ul>
+  <li>losses that are followed by a win (LW), of which there are $(l - 1)$ but represent $2(l-1)$ games.</li>
+  <li>a season-ending loss (L), of which there is $1$.</li>
+  <li>single, standalone wins (W), of which there are $82 - 2(l - 1) - 1 = 83 - 2l$.</li>
+</ul>
+
+<p>We arrive at the total number of units by adding all three groups together: $83 - 2l + (l - 1) + 1 = 83 - l$. These three groups can be placed in any order and the season can be guaranteed to not contained any back-to-back losses. We just need to figure out how to enumerate these combinations.</p>
+
+<p>If we could lump two of the units together, we would be choosing the ordering of two groups and could use the binomial formula; and lucky for us, we can do just that! If we group the two types of units with losses together (of which there are $l$), we don’t have to designate which loss is the season-ending one. With this insight, we have $83-l$ total slots to put a loss, and have $l$ losses to place, which gives us the following equation for the number of $l$-loss seasons that do not contain consecutive losses:</p>
+
+<script type="math/tex; mode=display">\binom{83 - l}{l} (1-p)^l(p)^{82-l}</script>
+
+<p>If we consider the Warriors probability of winning a game is 80%, and we want to get the total probability over all possible seasons, we get the following equation:</p>
+
+<script type="math/tex; mode=display">\sum_{k=0}^{82} \binom{83 - l}{l} (1-p)^l(p)^{82-l} = \sum_{k=0}^{82} \binom{83 - l}{l} (0.2)^l(0.8)^{82-l} = \underline{0.058817}</script>
+
+<p>So the Warriors had exactly a $\underline{5.88}$% chance of not losing consecutive games if indeed they had an 80% chance of winning every game. And the exact answer falls within the range given by our Monte Carlo simulation; yes, all is right with the world. If we wanted to make this problem more interesting, we could take into account the Warriors schedule and calculate the win probability of each game. But now it’s time to talk about cash flow!</p>
+
+<h2 id="expected-playoff-gate-revenue">Expected Playoff Gate Revenue</h2>
+
+<p>How much money from ticket sales can the NBA expect to bring in during the Playoffs? The League provided two datasets as a part of the Hackathon application:</p>
+
+<ol>
+  <li>The win probabilities for home and away games for every combination of teams (view <a href="https://github.com/dancsalo/NBA-Analytics/blob/master/gate-revenue/data/wins.csv">data</a>).</li>
+  <li>The expected gate revenue at each NBA stadium for all four playoff rounds (view <a href="https://github.com/dancsalo/NBA-Analytics/blob/master/gate-revenue/data/revs.csv">data</a>).</li>
+</ol>
+
+<p>First, we need to figure out the expected revenue from each matchup, and this is dependent on how many games are played of the 7-game series.</p>
+
+<h3 id="7-game-series-math">7-Game Series Math</h3>
+<p>Let’s start simply by considering the probabilities that a 7-game series ends in either $N = {4,5,6,7}$ games if the two teams have equal probabilities of winning:</p>
+
+<ul>
+  <li>N = 4. $2 \binom{3}{3} / 2^3 = 0.125$</li>
+  <li>N = 5. $2 \binom{4}{3} / 2^4 =0.25$</li>
+  <li>N = 6. $2 \binom{5}{3} / 2^5 = 0.3125$</li>
+  <li>N = 7. $2 \binom{6}{3} / 2^6 = 0.3125$</li>
+</ul>
+
+<p>Notice how these four numbers sum to $1$, which confirms that we are working with a valid probability distribution. In this equations above, the denominator gives the total number of possible win/loss combinations and the numerator describes the number of outcomes in which 4 games is won by either team (hence the doubling factor in the numerator).</p>
+
+<p>Now let’s make the problem more complex: we expect one team (Warriors) to beat the other team (Spurs) with probability $p = 0.55$. Now we have to split up the probability of the Warriors winning and the Spurs winning:</p>
+
+<ul>
+  <li>N = 4. $\binom{3}{3} (p^4 + (1-p)^4) = 0.133$</li>
+  <li>N = 5. $\binom{4}{3} (p^4(1-p) + (1-p)^4p) = 0.255$</li>
+  <li>N = 6. $\binom{5}{3} (p^4(1-p)^2 + (1-p)^4p^2) = 0.309$</li>
+  <li>N = 7. $\binom{6}{3} (p^4(1-p)^3 + (1-p)^4p^3) = 0.303$</li>
+</ul>
+
+<p>These calculations show that the more lopsided a matchup, the more likely the series is to last fewer games! But we can still make the problem more complicated by taking into account home and away games; for this discussion, we will assume the 2-2-1-1-1 playoff series format. If we assume that the Warriors have a $p_h$ chance of winning at home against the Spurs and a $p_a$ chance of winning away against the Spurs, then the following expressions describe the probability that the series ends in $N$ games:</p>
+
+<h4 id="n--4-2-home-games-2-away-games">N = 4, 2 Home games, 2 Away games.</h4>
+<p><script type="math/tex">p_h^2p_a^2 + (1-p_h)^2(1-p_a)^2</script></p>
+
+<h4 id="n--5-3-home-games-2-away-games">N = 5, 3 Home games, 2 Away games.</h4>
+<p><script type="math/tex">% <![CDATA[
+\begin{align}
+\binom{2}{1} &\left[ p_h^2p_a^2(1-p_h) + (1-p_h)^2(1-p_a)^2p_h\right] +\\\\
+\binom{2}{1} &\left[ p_h^3p_a(1-p_a) + (1-p_h)^3(1-p_a)p_a) \right]\\\\
+\end{align} %]]></script></p>
+
+<h4 id="n--6-3-home-games-3-away-games">N = 6, 3 Home games, 3 Away games.</h4>
+<p><script type="math/tex">% <![CDATA[
+\begin{align}
+\binom{2}{1} \binom{3}{1} &\left[ p_h^2p_a^2(1-p_h)(1-p_a) + (1-p_h)^2(1-p_a)^2p_hp_a\right] +\\\\
+&\left[ p_h^3p_a(1-p_a)^2 + (1-p_h)^3(1-p_a)p_a^2 \right] + \\\\
+\binom{3}{2} &\left[ p_hp_a^3(1-p_h)^2 + (1-p_h)(1-p_a)^3p_h^2 \right] \\\\
+\end{align} %]]></script></p>
+
+<h4 id="n--7-4-home-games-3-away-games">N = 7, 4 Home games, 3 Away games.</h4>
+<p><script type="math/tex">% <![CDATA[
+\begin{align}
+\binom{3}{2} \binom{3}{1} &\left[ p_h^2p_a^2(1-p_h)^2(1-p_a) + (1-p_h)^2(1-p_a)^2p_h^2p_a\right] + \\\\
+\binom{3}{1} \binom{3}{2} &\left[ p_h^3p_a(1-p_a)^2 + (1-p_h)^3(1-p_a)p_a^2 \right] + \\\\
+&\left[ p_hp_a^3(1-p_h)^3 + (1-p_h)(1-p_a)^3p_h^3 \right] + \\\\
+&\left[ p_h^4(1-p_a)^3 + (1-p_h)^4p_a^3 \right] \\\\
+\end{align} %]]></script></p>
+
+<p>The difficulty in deriving the above equations is keeping track of the number of home and away games that have been played before the last game. Some of the expressions have two binomial coefficients because both the away games and home games can occur in different orders.</p>
+
+<h3 id="simulations-and-results">Simulations and Results</h3>
+<p>These equations will help us compute the expected gate revenue from any matchup between NBA teams with the two provided datasets. The expected gate revenue at NBA Stadiums is displayed below.</p>
+
+<div><a href="https://plot.ly/~dancsalo/9/?share_key=Vogp6JhlzqdvtpEWaFCw8h" target="" title="Gate-Revenue" style="display: block; text-align: center;"><img src="https://plot.ly/~dancsalo/9.png?share_key=Vogp6JhlzqdvtpEWaFCw8h" alt="Gate-Revenue" style="max-width: 100%;width: 600px;" width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="dancsalo:9" sharekey-plotly="Vogp6JhlzqdvtpEWaFCw8h" src="https://plot.ly/embed.js" async=""></script>
+</div>
+
+<p>After running $1000$ playoff simulations (view <a href="https://github.com/dancsalo/NBA-Analytics/blob/master/gate-revenue/gate-revenue.Rmd">code</a>), we arrive at the following probability distribution:</p>
+
+<div>
+  <a href="https://plot.ly/~dancsalo/7/?share_key=i71myrYXANqI9TaDC9bGrF" target="" title="Revenue" style="display: block; text-align: center;"><img src="https://plot.ly/~dancsalo/7.png?share_key=i71myrYXANqI9TaDC9bGrF" alt="Revenue" style="max-width: 100%;width: 600px;" width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+  <script data-plotly="dancsalo:7" sharekey-plotly="i71myrYXANqI9TaDC9bGrF" src="https://plot.ly/embed.js" async=""></script>
+</div>
+
+<p>This distribution is bimodal, with the chance of generating <span>$</span>$160$ million or <span>$</span>$120$ million equal to about $75$%. If I were in the NBA Finance department, I would want to know which teams need to win in order to maximize playoff ticket sales. We can arrive at that answer by comparing which teams win at each round in simulations where the total revenue is <span>$</span>$160$ million and <span>$</span>$120$ million.</p>
+
+<div>
+  <a href="https://plot.ly/~dancsalo/1/?share_key=etI48ASPt2vsbMU6qaDAUW" target="" title="Round-2-Teams" style="display: block; text-align: center;"><img src="https://plot.ly/~dancsalo/1.png?share_key=etI48ASPt2vsbMU6qaDAUW" alt="Round-2-Teams" style="max-width: 100%;width: 600px;" width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+  <script data-plotly="dancsalo:1" sharekey-plotly="etI48ASPt2vsbMU6qaDAUW" src="https://plot.ly/embed.js" async=""></script>
+</div>
+
+<div>
+  <a href="https://plot.ly/~dancsalo/3/?share_key=jzBqSrtZdPc40PIGZkoKcd" target="" title="Round-3-Teams" style="display: block; text-align: center;"><img src="https://plot.ly/~dancsalo/3.png?share_key=jzBqSrtZdPc40PIGZkoKcd" alt="Round-3-Teams" style="max-width: 100%;width: 600px;" width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+  <script data-plotly="dancsalo:3" sharekey-plotly="jzBqSrtZdPc40PIGZkoKcd" src="https://plot.ly/embed.js" async=""></script>
+</div>
+
+<div>
+  <a href="https://plot.ly/~dancsalo/5/?share_key=q7gP1FoaWdIGc4qqgenAVR" target="" title="Round-4-Teams" style="display: block; text-align: center;"><img src="https://plot.ly/~dancsalo/5.png?share_key=q7gP1FoaWdIGc4qqgenAVR" alt="Round-4-Teams" style="max-width: 100%;width: 600px;" width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+  <script data-plotly="dancsalo:5" sharekey-plotly="q7gP1FoaWdIGc4qqgenAVR" src="https://plot.ly/embed.js" async=""></script>
+</div>
+
+<p>No huge discrepancies are present in the Round 2 and 3 plots, but the Round 4 plot, which shows us the NBA Finals participants, tells us everything we need to know: the top seed in the West (the 2017 Warriors), must make it to the Finals in order for the NBA to maximize their profit from ticket sales. Yes, most fans would suspect this to be true, but there’s nothing like proving intuitive suspicions with some math.</p>
+:ET

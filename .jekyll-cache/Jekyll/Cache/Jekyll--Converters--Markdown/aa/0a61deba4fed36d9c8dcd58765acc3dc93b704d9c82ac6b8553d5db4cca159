@@ -1,0 +1,399 @@
+I"�B<p><strong>Check out the <a href="https://github.com/dancsalo/spacy-jeopardy-classifier">Github Repo</a> associated with this post!</strong></p>
+
+<h2 id="introduction">Introduction</h2>
+<p>After finishing the Advanced NLP with spaCy <a href="https://course.spacy.io/">course</a>, I wanted to try out the rule-matching and model-training of the spaCy framework to an text classification problem. I stumbled upon a large batch of Jeopardy! <a href="https://www.reddit.com/r/datasets/comments/1uyd0t/200000_jeopardy_questions_in_a_json_file/">questions and answers</a> and chose the following challenge to tackle: <strong>Can we classify Jeopardy! questions as being answered with a single person or not?</strong></p>
+
+<p>The dataset contains 216,930 question and answer pairs from Jeopardy! shows airing between 1984 to 2012. Below is an example of a Jeopardy! question whose answer contains a single person; we’ll refer to such pairs as “positive” for the rest of the post.</p>
+
+<blockquote>
+  <ul>
+    <li>Q: Best known as a writer of children’s stories, he was also a fine photographer; Alice Liddell was a subject</li>
+    <li>A: Lewis Carroll</li>
+  </ul>
+</blockquote>
+
+<p>A single person answer is in contrast to an answer with multiple people:</p>
+
+<blockquote>
+  <ul>
+    <li>Q: From this duo’s classic routine: “Who’s on first?” “Yes.” “I mean the fellow’s name.” “Who.” “The guy on first.” “Who”</li>
+    <li>A: Abbott and Costello</li>
+  </ul>
+</blockquote>
+
+<p>The variety and complexity of this challenge favors a solution centered around machine learning. But before we can train a model, we need to find and label positive and negatives pairs in the dataset. This post will walk through methods to select and label such training data with high precision and to train a text classification model, all using the <a href="https://spacy.io/usage/v2-2">spaCy 2.x</a> <a href="https://spacy.io/api/matcher">Matcher</a> and <a href="https://spacy.io/api/textcategorizer">TextCategorizer</a> modules respectively.</p>
+
+<h2 id="labeling-training-data">Labeling Training Data</h2>
+<p>The output of a <em>high precision labeling function</em> contains a high percentage of positive examples (more than 95%). The recall of such a function may not be high, but the recall increases as more of these functions are combined.</p>
+
+<p><strong>Why strive for high precision labeling functions?</strong></p>
+
+<ol>
+  <li>The rate-limiting step in almost every nuanced text classification problem is getting labeled data. When a labeler reviews a datum that isn’t a positive example, inefficiency is introduced into the process; therefore, it’s expedient to squeeze out negative examples using automation before passing them along to the labeler.</li>
+  <li>Some labeling functions have such high precision that review by a labeler is not necessary; essentially, these types of functions are <em>rules</em> (analogous to laws in physics) that the dataset predictably follows. These functions are not only useful for quickly labeling entire pockets of a dataset, but they can also be added as an aide or a feature to the downstream machine learning model.</li>
+</ol>
+
+<p>Let’s further motivate these high precision functions with a lower precision approach to harvesting positive examples.</p>
+
+<h3 id="low-precision-harvesting">Low Precision Harvesting</h3>
+<p>Here we apply spaCy’s built-in NER model to the answers of the dataset and select examples whose answers contain a single <em>PERSON</em> entity. 29,064 pairs were returned, and the majority were positive hits; however,enough mistakes were made that we would need to look through those pairs to judiciously select positive examples. Here’s an overview of the mistakes the model made:</p>
+
+<h4 id="differential-reference">Differential Reference</h4>
+<p>A person’s name can also be the title of a film or a book.</p>
+
+<blockquote>
+  <ul>
+    <li>Q: Andrew Marton received a special award for directing the chariot race in this 1959 film</li>
+    <li>A: <strong>Ben-Hur</strong></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: Dickens mentions this Defoe work in many of his tales, including “Bleak House” &amp; “A Christmas Carol</li>
+    <li>A: <strong>Robinson Crusoe</strong></li>
+  </ul>
+</blockquote>
+
+<h4 id="partial-match">Partial Match</h4>
+<p>Occasionally, the model labeled an answer as a person based on only part of the phrase.</p>
+
+<blockquote>
+  <ul>
+    <li>Q: During World War II, many women wore this shoulder-length style with the ends curled under from ear-to-ear</li>
+    <li>A: Page <strong>Boy</strong></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: Americans who crossed the Berlin Wall to East Berlin used the guard station on Friedrichstrasse nicknamed this</li>
+    <li>A: Checkpoint <strong>Charlie</strong></li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: Ghosts at the Mounds Theatre in this “twin city” of Minneapolis are said to sit with the audience &amp; watch shows</li>
+    <li>A: St. <strong>Paul</strong></li>
+  </ul>
+</blockquote>
+
+<h4 id="head-scratchers">Head-Scratchers</h4>
+<p>There were a good number of just plain mistakes.</p>
+
+<blockquote>
+  <ul>
+    <li>Q: A culinary profession: ‘panadero’</li>
+    <li>A: baker (breadmaker acceptable)</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: This white whale related to the narwhal is the only whale that can bend its neck</li>
+    <li>A: beluga whale</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: Mel Gibson charges into battle as Scottish avenger William Wallace in this 1995 epic</li>
+    <li>A: Braveheart</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: It seems like I’ve seen this Bill Murray-Andie MacDowell film about a zillion times</li>
+    <li>A: Groundhog Day</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: In 1951 the Peron government seized control of this paper whose name is Spanish for “the press</li>
+    <li>A: La Prensa</li>
+  </ul>
+</blockquote>
+
+<h4 id="annotations">Annotations:</h4>
+<p>In a number of instances the peculiarities of the annotations threw off the model.</p>
+
+<blockquote>
+  <ul>
+    <li>Q: 1984: “Leap”</li>
+    <li>A: Jump (by <strong>Van Halen</strong>)</li>
+  </ul>
+</blockquote>
+
+<h4 id="ambiguous">Ambiguous</h4>
+<p>A couple of the results would be ambiguous even to humans.</p>
+
+<blockquote>
+  <ul>
+    <li>Q: This foe of Bugs Bunny is a marsupial</li>
+    <li>A: Tasmanian Devil</li>
+  </ul>
+</blockquote>
+
+<h3 id="low-precision-results-exaimination">Low Precision Results Exaimination</h3>
+<p>Let’s examine the positive hits returned by the NER labeling function to prepare us for later construction of high precision labeling functions. Contextual words and phrases are present in each question that allow us to infer if the answer is a <em>PERSON</em>. In each section below, we take a look at the different forms of that context.</p>
+
+<h4 id="subject-pronouns">Subject Pronouns</h4>
+<p>In many questions, the context is a singular pronoun (he, she) as the subject of a sentence.</p>
+
+<blockquote>
+  <ul>
+    <li>Q: In 1996, after winning his third U.S. Amateur title, <strong>he left</strong> Stanford to turn pro</li>
+    <li>A: Tiger Woods</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: <strong>She advised</strong> Macbeth to “look like th’ innocent flower, But be the serpent under’t”</li>
+    <li>A: Lady Macbeth</li>
+  </ul>
+</blockquote>
+
+<h4 id="possessive-pronouns">Possessive Pronouns</h4>
+<p>In other questions, the context was a singular possesive pronoun (his, her).</p>
+<blockquote>
+  <ul>
+    <li>Q: “Man with a Broken Nose”, <strong>his first sculpture</strong> submitted for exhibit to the Paris Salon, was rejected</li>
+    <li>A: Auguste Rodin</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>A: You may remember there are 3 melting watches in <strong>his</strong> “The Persistence of Memory”</li>
+    <li>Q: Salvador Dali</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: <strong>His</strong> recently won Nobel Peace Prize is now on display at <strong>his</strong> presidential library</li>
+    <li>A: Jimmy Carter</li>
+  </ul>
+</blockquote>
+
+<h4 id="personal-words">Personal Words</h4>
+<p>Oftentimes, the context would take the form of a personal word (e.g. job, occuptation, gendered reference) as the subject or object of a sentence or phrase combined with the word “this”</p>
+
+<blockquote>
+  <ul>
+    <li>Q: <strong>This Jello pudding pitchman</strong> said the darnedest things to kids at Xavier University’s commencement</li>
+    <li>A: Bill Cosby</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: “Whenever we go out, the people always shout, there goes” <strong>this man</strong></li>
+    <li>A: John Jacob Jingleheimer Schmidt</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: Jack Ryan helps avert a nuclear war in “The Sum of All Fears” by <strong>this author</strong>; thanks, Jack!</li>
+    <li>A: (Tom) Clancy</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: “Hocus Pocus” was a 1990 book by <strong>this “Cat’s Cradle” novelist</strong>,</li>
+    <li>A: Kurt Vonnegut</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: Bully for Len Cariou, who played <strong>this famous man</strong> in the musical “Teddy And Alice”</li>
+    <li>Q: Theodore Roosevelt</li>
+  </ul>
+</blockquote>
+
+<h4 id="quotations">Quotations</h4>
+<p>Some questions are beyond the scope of this blog post, such as inferring the question is a qutotation and you are asked to give the person to whom it is attributed.</p>
+
+<blockquote>
+  <ul>
+    <li>Q: “If one leads a country such as Britain… then you must have a touch of iron about you”</li>
+    <li>A: Margaret Thatcher</li>
+  </ul>
+</blockquote>
+
+<h3 id="high-precision-function-construction">High Precision Function Construction</h3>
+<p>In the previous section we outlined three general categories for labeling functions, but we’ll only implement subject pronouns and personal words since the possessive pronouns weren’t high precision.</p>
+
+<p>Using spaCy’s <a href="https://spacy.io/api/matcher">Matcher</a> module with the patterns below that catch <code class="highlighter-rouge">he</code> or <code class="highlighter-rouge">she</code> as the subject of the sentence and any instances of <code class="highlighter-rouge">this {personal word}</code>. The list of personal words was scraped from <a href="http://www.english-for-students.com/Job-and-Occupation-Vocabulary.html">this source</a> and contains common job and occuptation titles.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[{</span><span class="s">"TAG"</span><span class="p">:</span> <span class="s">"PRP"</span><span class="p">,</span> <span class="s">"DEP"</span><span class="p">:</span> <span class="s">"nsubj"</span><span class="p">,</span> <span class="s">"LOWER"</span><span class="p">:</span> <span class="p">{</span><span class="s">"IN"</span><span class="p">:</span> <span class="p">[</span><span class="s">"he"</span><span class="p">,</span> <span class="s">"she"</span><span class="p">]}}]</span>
+<span class="p">[{</span><span class="s">"LOWER"</span><span class="p">:</span> <span class="s">"this"</span><span class="p">},</span> <span class="p">{</span><span class="s">"LOWER"</span><span class="p">:</span> <span class="n">personal_word</span><span class="p">}]</span> <span class="k">for</span> <span class="n">personal_word</span> <span class="ow">in</span> <span class="n">PERSONAL_WORDS</span>
+</code></pre></div></div>
+
+<p>Using these filters, we whittle the 29,064 low-precision positives down to 9,128 high-precision positives! We have several options of what to do next:</p>
+<ul>
+  <li>Train a model with the high precision positives (this post)</li>
+  <li>Create more high precision labeling functions to increase the training set</li>
+  <li>Remove the high-recision positives from the initial set and use a labeling tool to annotate the remaining 19,936 (yikes)</li>
+</ul>
+
+<p>We used the inverse of our original labeling function to select our negative examples; now we are ready for machine learning!</p>
+
+<h3 id="train-and-evaluate-a-text-classifier">Train and Evaluate a Text Classifier</h3>
+<p>Using spaCy’s <a href="https://spacy.io/api/textcategorizer">TextCategorizer</a> module, we trained a CNN text classifier on 80% of the labeled data and evaluated it on the other 20%. Details on the training can be found in the [Jupyter notebook]. Here are the stats for the 10 epochs:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Epoch</th>
+      <th>Loss</th>
+      <th>Prec</th>
+      <th>Recall</th>
+      <th>F-score</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>1</td>
+      <td>4.270</td>
+      <td>0.706</td>
+      <td>0.805</td>
+      <td>0.752</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2</td>
+      <td>0.167</td>
+      <td>0.717</td>
+      <td>0.806</td>
+      <td>0.759</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>3</strong></td>
+      <td><strong>0.151</strong></td>
+      <td><strong>0.728</strong></td>
+      <td><strong>0.800</strong></td>
+      <td><strong>0.762</strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>4</td>
+      <td>0.133</td>
+      <td>0.731</td>
+      <td>0.791</td>
+      <td>0.760</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>5</td>
+      <td>0.119</td>
+      <td>0.731</td>
+      <td>0.787</td>
+      <td>0.758</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>6</td>
+      <td>0.102</td>
+      <td>0.729</td>
+      <td>0.776</td>
+      <td>0.752</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>7</td>
+      <td>0.086</td>
+      <td>0.729</td>
+      <td>0.769</td>
+      <td>0.749</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>8</td>
+      <td>0.072</td>
+      <td>0.734</td>
+      <td>0.771</td>
+      <td>0.752</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>9</td>
+      <td>0.061</td>
+      <td>0.733</td>
+      <td>0.755</td>
+      <td>0.744</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>10</td>
+      <td>0.054</td>
+      <td>0.729</td>
+      <td>0.743</td>
+      <td>0.736</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We’ll apply the model from the third epoch, with an F-score of 0.762, to the test set with 43,386 pairs. The model tags 3,565 pairs as positive with a threshold of <code class="highlighter-rouge">0.5</code>; below is a random sample.</p>
+
+<blockquote>
+  <ul>
+    <li>Q: Lebanese designer Elie Saab created the gown she wore at the 1999 coronation of her husband, King Abdullah</li>
+    <li>A: Rania</li>
+    <li>Score: {‘POSITIVE’: 0.8545047044754028, ‘NEGATIVE’: 0.1454952508211136}</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: Samuel Adams referred to this April 19, 1775 battle when he said, “What a glorious morning for America!”’</li>
+    <li>A: Lexington, Concord</li>
+    <li>Score: {‘POSITIVE’: 0.6066977977752686, ‘NEGATIVE’: 0.39330214262008667}</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: Weakened by scarlet fever, Beth March was sentenced to death by this author’</li>
+    <li>A: (Louisa May) Alcott</li>
+    <li>Score: {‘POSITIVE’: 0.8984272480010986, ‘NEGATIVE’: 0.10157273709774017}</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: Born in Vancouver, he’s brought his curly hair &amp; rubber face to “Funny People” as well as to “Superbad”’</li>
+    <li>A: Seth Rogen</li>
+    <li>Score: {‘POSITIVE’: 0.5894494652748108, ‘NEGATIVE’: 0.4105505347251892}</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Q: He’s credited with the remark “L’ etat C’est Moi”, “I am the state”’</li>
+    <li>A: Louis XIV</li>
+    <li>Score: {‘POSITIVE’: 0.5193939208984375, ‘NEGATIVE’: 0.4806060492992401}</li>
+  </ul>
+</blockquote>
+
+<p>This very small sample shows a precision of around <code class="highlighter-rouge">0.8</code>; reviewing 100 samples confirms this percentage. This metric is right in line with our validation metrics!</p>
+
+<p>After reviewing 100 random samples from the entire test set, the recall appears to be low (approximately <code class="highlighter-rouge">0.3</code>, correctly labeling 5 of the 15 positives). Logical next steps would be to write more labeling functions or start manually labeling the bulk of training data.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>When diving into an NLP problem from scratch, finding high precision labeling functions can help reduce the burden of labeling by either aiding or fully automating the labeling process. The spaCy library makes it easy to do just that!</p>
+
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Much of what I’ve learned about labeling in high precision for NLP has its genesis in projects I’ve worked on while at <a href="https://www.proofpoint.com/us">Proofpoint</a>. I’m grateful for my immediate team of Brian Jones, Jeremy Jordan, and Zack Abzug.</p>
+
+:ET

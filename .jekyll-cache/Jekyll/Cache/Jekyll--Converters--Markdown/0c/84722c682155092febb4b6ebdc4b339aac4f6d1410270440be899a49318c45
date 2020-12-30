@@ -1,0 +1,47 @@
+I"s<p>I am <strong>Dan Salo</strong>: follower of <a href="https://www.esv.org/John+4/">Jesus</a>, husband to the lovely <a href="http://studentudurham.org/team">Amy</a>, and dedicated member of the <a href="http://www.summitrdu.com/">Summit Church</a> in <a href="https://www.durham-nc.com/media/accolades/">Durham, North Carolina</a>. I also like mathematics and programming.</p>
+
+<p>I currently work at <a href="https://www.proofpoint.com/us">Proofpoint</a> as a Data Scientist where I am creating new NLP and CV solutions to improve our cybersecurity classifier performance on social media content.</p>
+
+<h2 id="student-projects">Student Projects</h2>
+
+<div class="t-body">
+  <div class="t-row"><div class="t-head">Image Processing</div></div>
+  <div class="t-row">
+    <div class="t-img"><a href="/assets/about/bag_real.png" class="highslide" onclick="return hs.expand(this)"><img src="/assets/about/bag_real.png" alt="Highslide JS" /></a></div>
+    <div class="t-cell">As a graduate student in the <a href="http://people.ee.duke.edu/~lcarin/">Carin lab</a>, I helped to implement an object detection algorithm for the <a href="https://www.tsa.gov/">TSA</a> to detect threatening objects in X-ray images of carry-on luggage.</div>
+  </div>
+  <div class="t-row"><div class="t-head">Biomedical Devices</div></div>
+  <div class="t-row">
+    <div class="t-img"><a href="/assets/about/qdri_leds.png" class="highslide" onclick="return hs.expand(this)"><img src="/assets/about/qdri_leds.png" alt="Highslide JS" /></a></div>
+    <div class="t-cell">The <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0127525">Quantitative Diffuse Reflectance Imaging System</a> provides Breast Cancer surgeons with intraoperative feedback about excised tumor margins. I designed, constructed, verified, and validated a novel and scalable LED light source for the system while a graduate student in the laboratory of <a href="https://nimmi.bme.duke.edu/">Nimmi Ramanujam</a>.</div>
+  </div>
+  <div class="t-row-border"></div>
+  <div class="t-row">
+    <div class="t-img"><a href="/assets/about/edemaband.png" onclick="return hs.expand(this)"><img src="/assets/about/edemaband.png" alt="Highslide JS" /></a></div>
+    <div class="t-cell">The <a href="http://aac-rerc.psu.edu/wordpressmu/RESNA-SDC/2014/06/01/the-edemaband-north-carolina-state-university/">EdemaBand</a> empowers patients with congestive heart failure to manage their condition from home. Our Senior Design team at NC State University built, tested, and presented a prototype of the device that won first place at the <a href="http://www.ncbiotech.org/content/8th-annual-biomedical-engineering-symposium">8th Annual Biomedical Engineering Symposium</a>.</div>
+  </div>
+  <div class="t-row-border"></div>
+  <div class="t-row">
+    <div class="t-img"><a href="/assets/about/jbo_nir.png" class="highslide" onclick="return hs.expand(this)"><img src="/assets/about/jbo_nir.png" alt="Highslide JS" /></a></div>
+    <div class="t-cell">The <a href="https://www.ncbi.nlm.nih.gov/pubmed/25104414">Extended Near Infrared</a> range can illuminate diagnostic features deep in human tissue without the cost or the danger of radioactive tracers. As an <a href="http://amgenscholars.com/university/washington-university-in-st.-louis">Amgen Scholar at Washington University in St. Louis</a> under the direction of <a href="https://www.mir.wustl.edu/research/research-laboratories/optical-radiology-laboratory-orl/research-groups/berezin-group">Mikhail Berezin</a>, I explored how these wavelengths interacted with human tissues and phantoms at different depths.</div>
+  </div>
+</div>
+
+<h2 id="teaching">Teaching</h2>
+
+<h3 id="selected-talks">Selected Talks</h3>
+<ul>
+  <li><a href="../assets/about/talks/ai_text_analysis.pdf">Automated Insights: Textual Analysis</a></li>
+  <li><a href="../assets/about/talks/carin_mcgan.pdf">Carin Lab: McGAN</a></li>
+  <li><a href="../assets/about/talks/carin_iaf.pdf">Carin Lab: Inverse Autoregressive Flow</a></li>
+  <li><a href="../assets/about/talks/smiths_nn.pdf">Smiths Detection: Deep Learning Introduction</a></li>
+</ul>
+
+<h3 id="curricula">Curricula</h3>
+<ul>
+  <li><a href="https://drive.google.com/open?id=0B4npwJ5OSCnTX2xrQTB2UlpEQ0k">6th - 8th Grade First Lego League</a></li>
+  <li><a href="https://drive.google.com/drive/folders/0B0Tgom4mxr1Vb2pIa1EtSTRiQTQ?usp=sharing">6th - 8th Grade Basketball Club</a></li>
+  <li><a href="https://drive.google.com/drive/folders/0B8u9PK1-9QINb09KTkswc2s1MmM?usp=sharing">8th Grade Physics and Engineering Summer Program</a></li>
+  <li><a href="https://drive.google.com/drive/folders/0ByUXjmw7HbGSTmtjQTJ0TnpBcFk?usp=sharing">Undergraduate Developing World Design Class</a></li>
+</ul>
+:ET
