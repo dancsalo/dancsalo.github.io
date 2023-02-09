@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.8)  10 NOV 2019 14:13
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.8)  8 FEB 2023 22:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -370,13 +370,7 @@ Package fontspec Info: Font family 'Fontin(0)' created for font 'Fontin' with
 (fontspec)             <->"Fontin/BI/OT:script=latn;language=DFLT;"
 (fontspec)             - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 
-
-Overfull \hbox (3.17548pt too wide) in paragraph at lines 146--152
-[]\TU/lmr/m/n/10.95 Automated Insights Hackathon 3rd place (2018), NSF GRFP Hon
-orable Mention (2016),
- []
-
-[1
+ [1
 
 ] ) 
 Here is how much of TeX's memory you used:
