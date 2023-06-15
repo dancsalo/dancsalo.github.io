@@ -9,45 +9,41 @@ sitemap:
   exclude: 'no'
 ---
 
-I am **Dan Salo**: follower of [Jesus](https://www.esv.org/John+4/), husband to the lovely [Amy](http://studentudurham.org/team), and dedicated member of the [Summit Church](http://www.summitrdu.com/) in [Durham, North Carolina](https://www.durham-nc.com/media/accolades/). I also like mathematics and programming.
+Hi! My name is Dan. I work at <a href="https://www.proofpoint.com/us">Proofpoint</a> as a Data Science Manager and Tech Lead. Our team of data scientists and engineers collaborates with three different product lines (Patrol, Enterprise DLP, Protection Platform) to produce machine learning features that solve real problems for our customers.
 
-I currently work at <a href="https://www.proofpoint.com/us">Proofpoint</a> as a Data Scientist where I am creating new NLP and CV solutions to improve our cybersecurity classifier performance on social media content.
+I stepped into a technical manager and tech lead role in April 2022. My role as manager and my background in data science has allowed me to teach and mentor on the job, which I've really enjoyed. My role as tech lead has pushed me to manage multiple projects simultaneously within our team, create milestones and roadmaps with product managers, and coordinate improvements to our internal machine learning infrastructure with engineering groups.
 
-## Student Projects
+I am passionate about delivering value to customers by choosing the right (which is usually the simplest) tool for the task. I believe in humble confidence and open collaboration builds strong culture. I love working with individual team members to match their passions with business needs.
 
-<div class="t-body">
-  <div class="t-row"><div class="t-head">Image Processing</div></div>
-  <div class="t-row">
-    <div class="t-img"><a href="/assets/about/bag_real.png" class="highslide" onclick="return hs.expand(this)"><img src="/assets/about/bag_real.png" alt="Highslide JS" /></a></div>
-    <div class="t-cell">As a graduate student in the <a href="http://people.ee.duke.edu/~lcarin/">Carin lab</a>, I helped to implement an object detection algorithm for the <a href="https://www.tsa.gov/">TSA</a> to detect threatening objects in X-ray images of carry-on luggage.</div>
-  </div>
-  <div class="t-row"><div class="t-head">Biomedical Devices</div></div>
-  <div class="t-row">
-    <div class="t-img"><a href="/assets/about/qdri_leds.png" class="highslide" onclick="return hs.expand(this)"><img src="/assets/about/qdri_leds.png" alt="Highslide JS" /></a></div>
-    <div class="t-cell">The <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0127525">Quantitative Diffuse Reflectance Imaging System</a> provides Breast Cancer surgeons with intraoperative feedback about excised tumor margins. I designed, constructed, verified, and validated a novel and scalable LED light source for the system while a graduate student in the laboratory of <a href="https://nimmi.bme.duke.edu/">Nimmi Ramanujam</a>.</div>
-  </div>
-  <div class="t-row-border"></div>
-  <div class="t-row">
-    <div class="t-img"><a href="/assets/about/edemaband.png" onclick="return hs.expand(this)"><img src="/assets/about/edemaband.png" alt="Highslide JS" /></a></div>
-    <div class="t-cell">The <a href="http://aac-rerc.psu.edu/wordpressmu/RESNA-SDC/2014/06/01/the-edemaband-north-carolina-state-university/">EdemaBand</a> empowers patients with congestive heart failure to manage their condition from home. Our Senior Design team at NC State University built, tested, and presented a prototype of the device that won first place at the <a href="http://www.ncbiotech.org/content/8th-annual-biomedical-engineering-symposium">8th Annual Biomedical Engineering Symposium</a>.</div>
-  </div>
-  <div class="t-row-border"></div>
-  <div class="t-row">
-    <div class="t-img"><a href="/assets/about/jbo_nir.png" class="highslide" onclick="return hs.expand(this)"><img src="/assets/about/jbo_nir.png" alt="Highslide JS" /></a></div>
-    <div class="t-cell">The <a href="https://www.ncbi.nlm.nih.gov/pubmed/25104414">Extended Near Infrared</a> range can illuminate diagnostic features deep in human tissue without the cost or the danger of radioactive tracers. As an <a href="http://amgenscholars.com/university/washington-university-in-st.-louis">Amgen Scholar at Washington University in St. Louis</a> under the direction of <a href="https://www.mir.wustl.edu/research/research-laboratories/optical-radiology-laboratory-orl/research-groups/berezin-group">Mikhail Berezin</a>, I explored how these wavelengths interacted with human tissues and phantoms at different depths.</div>
-  </div>
-</div>
 
-## Teaching
+### Dissmenation
+* [ML in Production](https://stat.duke.edu/events/machine-learning-metamorphosis-breaking-models-out-your-local-machine-and-releasing-them): Duke Statistical Sciences Proseminar, February 1st, 2023
+* [Promissory Image Classifier](https://www.proofpoint.com/us/blog/engineering-insights/development-of-the-promissory-images-classifier): Proofpoint Engineering Blog, June 14th, 2023
 
-### Selected Talks
-* [Automated Insights: Textual Analysis](../assets/about/talks/ai_text_analysis.pdf)
-* [Carin Lab: McGAN](../assets/about/talks/carin_mcgan.pdf)
-* [Carin Lab: Inverse Autoregressive Flow](../assets/about/talks/carin_iaf.pdf)
-* [Smiths Detection: Deep Learning Introduction](../assets/about/talks/smiths_nn.pdf)
+### Technical Presentations
+* [Textual Analysis](../assets/about/talks/ai_text_analysis.pdf): Automated Insights, 2017
+* [McGAN](../assets/about/talks/carin_mcgan.pdf): Carin Lab @ Duke, 2017
+* [Inverse Autoregressive Flow](../assets/about/talks/carin_iaf.pdf): Carin Lab @ Duke, 2017
+* [Deep Learning Introduction](../assets/about/talks/smiths_nn.pdf): Smiths Detection, 2017
+* [Elasticsearch 101](../assets/about/talks/pfpt_elasticsearch.pdf): Proofpoint, 2021
+* [NLP Pre-Transformers](../assets/about/talks/pfpt_pre_transformers.pdf): Proofpoint, 2022
+* [Model Performance Management](../assets/about/talks/pfpt_model_performance_management.pdf): Proofpoint, 2022
+* [ML in Production](../assets/about/talks/duke_ml_production.pdf): Duke Stat Sci Proseminar, 2023
 
-### Curricula
-* [6th - 8th Grade First Lego League](https://drive.google.com/open?id=0B4npwJ5OSCnTX2xrQTB2UlpEQ0k)
-* [6th - 8th Grade Basketball Club](https://drive.google.com/drive/folders/0B0Tgom4mxr1Vb2pIa1EtSTRiQTQ?usp=sharing)
-* [8th Grade Physics and Engineering Summer Program](https://drive.google.com/drive/folders/0B8u9PK1-9QINb09KTkswc2s1MmM?usp=sharing)
-* [Undergraduate Developing World Design Class](https://drive.google.com/drive/folders/0ByUXjmw7HbGSTmtjQTJ0TnpBcFk?usp=sharing)
+### Patents
+* [Augmented NLG](../assets/about/patents/patent_aug_nlg.pdf): Automated Insights, 2019
+* [Automated Cyberthreat Detection](../assets/about/patents/patent_cyberthreats.pdf): Proofpoint, 2022
+* [Promissory Image Classifier](../assets/about/patents/patent_promissory.pdf): Proofpoint, 2022
+
+### Mentorship
+
+##### Interns
+* [Jacob McCright](https://www.linkedin.com/in/jacob-mccright/): Automated Insights Summer Intern, 2018
+* [Gautham Gorti](https://www.linkedin.com/in/gautham-gorti-111ba7186/): Proofpoint Summer Intern, 2021
+* [Rahul Shukla](https://www.linkedin.com/in/rahulshukla1101/): Proofpoint Summer Intern, 2022
+* [Abigail Spigarelli](https://www.linkedin.com/in/abigail-spigarelli/): Proofpoint Summer Intern, 2023
+
+##### Full-Time
+* [Cole Juracek](https://www.linkedin.com/in/colejuracek/): Proofpoint Data Scientist, 2021-
+* [Boston Lee](https://www.linkedin.com/in/boston-lee/): Proofpoint Software Engineer, 2022-
+* [Colby Leclerc](https://www.linkedin.com/in/colbyleclerc/): Proofpoint Software Engineer, 2022-

@@ -1,0 +1,25 @@
+I"�<h3 id="introduction">Introduction</h3>
+<p>An <strong>interpretable representation</strong> is one that makes sense to humans. Such formats can be easily reasoned about and compared and discussed. Ultimately, humans can use such representations as input in their own decision making processes.</p>
+
+<p>The mechanisms of <strong>interpretable models</strong> are <em>transparent</em> and can be represented interpretably. For example, linear regression is commonly cited as an interpretable model when assuming 1) the input terms are interpretable and 2) the number of inputs terms is sufficiently constrained. If non-linear inputs are added or the number of input terms grows to be unwieldy (e.g. 100’s), it loses that quality of interpretability.</p>
+
+<p><strong>Explaining</strong> is required when a human desires information in an interpretable representation around the mechanisms of a <em>non-transparent</em> or <em>uninterpretable</em> or <em>black-box</em> model. Explanations can be local and specific to an instance, or they can be global and apply to many instances. Explainations are by definition an approximation to the original model. And in some cases, such as high stakes decisions, <a href="https://arxiv.org/pdf/1811.10154.pdf">interpretable models are preferred to explaining uninterpretable models</a>.</p>
+
+<p>So why don’t we use interpretable models for all our problems? Oftentimes, uninterpretable models (such as deep neural nets) supply more predictive power than their interpretable counterparts. Until researchers in Interpretable ML can sufficiently close the performance gap between these two classes, we must deal with explaining classifiers.</p>
+
+<h3 id="explaining-uninterpretable-models">Explaining Uninterpretable Models</h3>
+<p>Christop Molnar wrote an <a href="https://christophm.github.io/interpretable-ml-book/">approachable book</a> on black box explanations. It’s a great read! I was most interested with the model-agnostic techniques, of which LIME and Anchors are two of the most popular and both come out of Marco Ribierio’s lab. The papers are well written and Christop’s writeups serve as a helpful accompaniment:</p>
+
+<ul>
+  <li><a href="https://christophm.github.io/interpretable-ml-book/lime.html#lime">LIME</a></li>
+  <li><a href="https://arxiv.org/pdf/1602.04938.pdf">“Why Should I Trust You?”: Explaining the Predictions of Any Classifier</a></li>
+  <li><a href="https://christophm.github.io/interpretable-ml-book/anchors.html">Anchors</a></li>
+  <li><a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">Anchors: High-Precision Model-Agnostic Explanations</a></li>
+</ul>
+
+<h3 id="latent-space">Latent Space</h3>
+<p><a href="https://ai.googleblog.com/2019/04/evaluating-unsupervised-learning-of.html">Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations</a> is a recent paper from Google Research on the interpretability of the latent space of deep models. This paper shows that black box classifers have “entangled” representations naturally. Autoencoders hold promise for a reduce dimension latent space, but there are no guarantees that the latent space will be disentangled. It won best paper award at ICML 2019!</p>
+
+<h3 id="explaining-uninterpretable-models-vs-interpretable-models">Explaining Uninterpretable Models vs. Interpretable Models</h3>
+<p>Cynthia Rudin argues that high stakes decisions need <a href="https://arxiv.org/pdf/1811.10154.pdf">interpretable models, not explanations of black boxes</a>. Critical applications such as the justice system or credit score assignment ought to have interpretability because of their impact. Recommending an ad as a user scrolls doesn’t rise to the same level of scrutiny.</p>
+:ET

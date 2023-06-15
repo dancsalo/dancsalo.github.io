@@ -1,0 +1,105 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Graduate Curriculum Vitae
+% LaTeX Template
+% Version 1.1 (9/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Rensselaer Polytechnic Institute (http://www.rpi.edu/dept/arc/training/latex/resumes/)
+%
+% Important note:
+% This template requires the res.cls file to be in the same directory as the
+% .tex file. The res.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[resmargin, 11pt]{resume_style_class} % Use the res.cls style, the font size can be changed to 11pt or 12pt here
+
+\topmargin=-0.5in
+\oddsidemargin -0.4in
+
+\newsectionwidth{-0in}
+
+\usepackage{fontspec}
+\usepackage{hyperref}
+
+\renewcommand{\sectionfont}{\bf\large\fontspec{Fontin}}
+
+\newenvironment{myfont}{\fontspec{Fontin}\selectfont}{\par}
+\DeclareTextFontCommand{\textmyfont}{\myfont}
+
+\setlength{\textheight}{10.5in}
+
+\usepackage{tabularx}
+
+\newcommand\textline[3]{%
+	\hspace{-\hoffset} \parbox{0.5\textwidth}{\raggedright \Huge \usefont{OT1}{phv}{b}{n} #1 \par \normalsize \normalfont}%
+	\parbox{.333\textwidth}{\raggedleft\texttt{#3}}\par\smallskip%
+}
+
+
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+	
+	%----------------------------------------------------------------------------------------
+	%	NAME AND ADDRESS SECTION
+	%----------------------------------------------------------------------------------------
+	
+	\begin{minipage}[t][1cm][b]{0.3\resumewidth}
+		\hspace{-\hoffset}\raggedright \Huge \usefont{OT1}{phv}{b}{n} Dan Salo \normalsize
+	\end{minipage}
+	\begin{minipage}[t][1cm][b]{0.7\resumewidth}
+		\footnotesize
+		\raggedleft Forestwood Drive, Durham, NC \\  \texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm}  \texttt{(919) 698-2742}
+	\end{minipage}
+	
+	\smallskip
+	
+	\moveleft\hoffset\vbox{\hrule width\resumewidth height 2pt}% Horizontal line after name; adjust line thickness by changing the '1pt'
+	
+	
+	
+	%----------------------------------------------------------------------------------------
+	
+June 14th, 2023
+
+Teresa Ko\newline
+Director of Engineering\newline
+Apple \newline
+8476 Steller Drive\newline
+Culver City, CA 90232
+
+Dear Teresa Ko,
+
+I am writing to express my interest in the Machine Learning Manager role for Apple’s Creativity Apps based out of Raleigh, NC. After five years of shipping machine learning models as an individual contributor, I moved into management over a year ago. I have enjoyed forming my team, setting our vision and roadmaps, and delivering value to our customers. I am eager to grow in my abilities as a technical leader under a more established mentor within a larger company.
+
+My team within the Machine Learning Labs organization at Proofpoint releases features that bring intelligence to three different products. These features leverage Transformer-based models for NLP, deep object detectors for CV, and a range of classical techniques such as tree-based and clustering algorithms. Each algorithm helps to ensure compliance and detect security threats for our customers over millions of emails, social media posts, and cloud documents every day.
+
+I serve as the team tech lead in addition to its people manager. As tech lead, I influence and coach team members through modeling and architecture decisions; consequently, staying current with the state-of-the-art is a high priority for me. My years as a PhD student and our ongoing collaborations with Washington State University and Duke University strengthen my ability to sift the literature for insight into these decisions. 
+
+The subject matter of this role excites me. I have been a longtime user and fan of Apple’s Creativity Apps; I bought my first MacBook because of GarageBand. Whether experimenting with a piano composition or capturing an idea for the jazz combo at university, the ease and power of GarageBand has kept me coming back to it. I would be delighted to contribute to the next iteration of this product suite.
+
+Thank you for taking the time to review my application. I would welcome the opportunity to speak with you more about my potential fit for this role. 
+
+Best,\newline
+Dan Salo
+
+		
+		
+		
+
+
+
+
+	
+\end{document}

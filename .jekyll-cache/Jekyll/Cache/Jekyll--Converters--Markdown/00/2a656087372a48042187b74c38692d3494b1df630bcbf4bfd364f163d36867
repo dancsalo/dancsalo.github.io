@@ -1,0 +1,40 @@
+I"ª<p>Proofpoint sent me to <a href="https://scholar.google.com/citations?view_op=top_venues&amp;hl=en&amp;vq=eng_computationallinguistics">NAACL 2019</a>, which was my first time attending an NLP conference. I have a few main takeaways that I wanted to share!</p>
+
+<h4 id="transfer-learning-tutorial">Transfer Learning Tutorial</h4>
+<p><a href="http://ruder.io/">Sebastian Ruder</a> and his co-authors from AI2, CMU, and Huggingface marched through <a href="https://docs.google.com/presentation/d/1YYiSlSqRJzNHpalevPcMY918Npc9wzcKnZbSNcb6ptU/edit?usp=sharing">220 slides</a> with practical tips and tricks for applying this new class of Transformer-based language models, notably <a href="https://www.aclweb.org/anthology/N19-1423">BERT</a>, to particular target tasks. I give my brief summary of it below in case you donâ€™t have 4 hours to re-watch the tutorial.</p>
+
+<p>The goal of transfer learning is to improve the performance on a target task by applying knowledge gained through sequential or simultaneous training on a set of source tasks, as summarized by the diagram below from
+<a href="https://www.cse.ust.hk/~qyang/Docs/2009/tkde_transfer_learning.pdf">A Survey of Transfer Learning</a>:</p>
+
+<div class="imgcap">
+<img src="/assets/naacl19/transfer.png" />
+<div class="thecap">Traditional Machine Learning vs. Transfer Learning</div>
+</div>
+
+<p>There are three general keys to successful transfer learning: finding the set of source tasks that produce generalizble knowledge, selecting a method of knowledge transfer, and combining the generalizable and specific knowledge. Learning higher order concepts that are generalizble is crucial to the transfer. In image processing, those concepts are lines, shapes, patterns. In natural language processing, those concepts are syntax, semantics, morphology, subject verb agreement.</p>
+
+<p>Finding the right set of source tasks is important! Language modeling has been the task of choice for a while now. The transfer medium has been maturing over the years. Word2vec and skip thoughts stored knowledge in a produced vector, but now language models <em>are</em> the generalized knowledge. Quite the paradigm shift! Contextual neural models on language modeling tasks then require the slow introduction of target-specific language.</p>
+
+<p>Finally, how to optimize these models? A variety of techniques and methods were proposed:</p>
+<ul>
+  <li>Freezing all but the top layer. Long et al <a href="https://arxiv.org/pdf/1502.02791.pdf">Learning Transferable Features with Deep Adaptation Networks</a></li>
+  <li>Chain-thaw, training on layer at a time <a href="https://www.aclweb.org/anthology/D17-1169">Using millions of emoji occurrences to learn any-domain representationsfor detecting sentiment, emotion and sarcasm</a></li>
+  <li>Gradually unfreezing Howard et al <a href="https://arxiv.org/pdf/1801.06146.pdf">Universal Language Model Fine-tuning for Text Classification</a></li>
+  <li>Sequential unfreezing with hyperparameter tuning Felbo et al <a href="An Embarrassingly Simple Approach for Transfer Learning from Pretrained Language Models">https://arxiv.org/pdf/1902.10547.pdf</a></li>
+</ul>
+
+<h4 id="probing-language-models">Probing Language Models</h4>
+<p>Researchers are only beginning to develop the tooling necessary to understand these large models. Here are some papers that highlight this research effort:</p>
+<ul>
+  <li><a href="https://arxiv.org/abs/1906.02715">Visualizing and Measuring the Geometry of BERT</a>
+<a href="https://pair-code.github.io/interpretability/bert-tree/">Blog post</a></li>
+  <li><a href="https://arxiv.org/pdf/1811.00225.pdf">Understanding Learning Dynamics Of Language Models with SVCCA</a></li>
+  <li><a href="https://nlp.stanford.edu/pubs/hewitt2019structural.pdf">A structural Probe for Finding Syntax in Word Representations</a></li>
+  <li><a href="https://arxiv.org/abs/1902.10186">Attention is not Explanation</a></li>
+  <li><a href="https://arxiv.org/abs/1903.07435">The emergence of number and syntax units in LSTM language models</a></li>
+  <li><a href="https://arxiv.org/pdf/1903.03260.pdf">Neural Language Models as Psycholinguistic Subjects: Representations of Syntactic State</a></li>
+</ul>
+
+<h4 id="bert">BERT</h4>
+<p>BERT won best paper, which was no surprise. Because of the impact of preprints, ELMo felt like old news by the time the conference actually arrived. It resulted in a dissonance between what many of the papers were adapting (ELMo) and what the state-of-the-art was at the moment (BERT).</p>
+:ET

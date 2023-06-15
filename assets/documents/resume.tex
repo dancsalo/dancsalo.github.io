@@ -26,6 +26,7 @@
 \oddsidemargin -.4in
 
 \usepackage{fontspec}
+\usepackage{hyperref}
 
 \renewcommand{\sectionfont}{\bf\large\fontspec{Fontin}}
 
@@ -67,7 +68,7 @@
 \end{minipage}
 \begin{minipage}[t][1cm][b]{0.5\resumewidth}
 \footnotesize
-\raggedleft Forestwood Drive, Durham, NC \\  \texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm}  \texttt{dancsalo.github.io}
+\raggedleft Forestwood Drive, Durham, NC \\  \texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm}  \texttt{\href{https://dancsalo.github.io/}{dancsalo.github.io}}
 \end{minipage}
 
 \smallskip
@@ -84,31 +85,32 @@
 \section{WORK \\ EXPERIENCE}
 \textmyfont{Data Science Manager}, Proofpoint, Durham, NC \hfill 2022 - Pres.
 \begin{outline}
-	\item[$\bullet$\hspace{0.1cm}] Leading a cross-functional team to create ML features for the cloud DLP product lines. Applying few-shot learning and recommendation algorithms.
+	\item[$\bullet$\hspace{0.1cm}] Leading a team of engineers and data scientists to create and maintain ML models for three Proofpoint products: 4 models in production, 2 more by EOY.
 	\item[$\bullet$\hspace{0.1cm}] Collaborating with MLOps to architect solutions for model versioning, deployment pipelines, and production monitoring within our ML Platform.
 	\item[$\bullet$\hspace{0.1cm}] Revamped the onboarding and interview process, mentored multiple summer interns, and co-organized remote social events for the ML Labs organization.
 \end{outline} 
 \textmyfont{Senior Data Scientist}, Proofpoint, Durham, NC \hfill 2021 - 2022 \\
 \textmyfont{Data Scientist} \hfill 2019 - 2021
 \begin{outline}
-	\item[$\bullet$\hspace{0.1cm}] Created three new ML features to detect threats and ensure compliance on social media platforms. Hit precision requirements > 90\%.
-	\item[$\bullet$\hspace{0.1cm}] Constructed a system for servicing dozens of spaCy text classifiers, complete with customer-facing documentation and an evaluation dashboard.
+	\item[$\bullet$\hspace{0.1cm}] Responsible for performance of all ML models within \href{https://www.proofpoint.com/us/products/archiving-and-compliance/patrol}{Proofpoint Patrol} product.
+	\item[$\bullet$\hspace{0.1cm}] Deployed 3 new models for social media classification: BERT NER model for locations, FastText classifier for complaints, patented promissory image classifier.
+	\item[$\bullet$\hspace{0.1cm}] Created customer-facing model cards and evaluation dashboards for all classifiers.
 \end{outline} 
 
 \textmyfont{Senior Data Scientist}, Automated Insights, Durham, NC \hfill 2018 - 2019 \\
 \textmyfont{Data Scientist} \hfill 2017 - 2018
 \begin{outline}
-	\item[$\bullet$\hspace{0.1cm}] Programmed a contextual synonym suggester using custom-trained word vectors.
-	\item[$\bullet$\hspace{0.1cm}] Designed and prototyped a dynamic insights recommendation system for BI dashboards in concert with software engineers, designer, and product manager.
+	\item[$\bullet$\hspace{0.1cm}] Deployed a contextual synonym suggester using custom word vectors.
+	\item[$\bullet$\hspace{0.1cm}] Designed, prototyped, and patented a natural language generation system for BI dashboards alongside software engineers, designer, and product manager.
 \end{outline} 
 
 \section{EDUCATION}
 
 \textmyfont{M.S. in Engineering}, Duke University \hfill 2017
 \begin{outline}
-	\item Abdicated PhD Student 
-	\item Dr. Nimmi Ramanujam (BME): Point-of-Care Optical Cancer Imaging
-	\item Dr. Larry Carin (ECE): Deep Learning for Threat Detection in TSA Bag Scans
+	\item Abdicated PhD Student
+	\item \href{https://bme.duke.edu/faculty/nimmi-ramanujam}{Dr. Nimmi Ramanujam} (BME): Point-of-Care Optical Cancer Imaging
+	\item \href{https://scholar.google.com/citations?user=ZhGL6WcAAAAJ&hl=en}{Dr. Larry Carin} (ECE): Deep Learning for Threat Detection in TSA Bag Scans
 \end{outline}
 
 \textmyfont{B.Sc. in Biomedical Engineering}, NC State University \hfill 2014
@@ -116,17 +118,29 @@
 	\item Bioinstrumentation Concentration. Minor in Piano Performance.
 \end{outline}
 
+%\section{TEACHING \& MENTORSHIP}
+%\begin{outline-cond} 
+%\item \textmyfont{BME 521 TA}, Biomedical Electronics at NC State, Spring 2014
+%\item \textmyfont{BME 290L TA}, Medtech Device Prototyping Skills at Duke, Spring 2016
+%\item \textmyfont{Duke MIDS Capstone Advisor}, Logo Detection at Proofpoint, 2021-2022
+%\item \textmyfont{High School Tutor}, Student U, Durham, NC, 2015 - 2017
+%\item \textmyfont{FIRST Lego Robotics Coach}, Student U, Durham, NC, 2014 - 2015
+%\item \textmyfont{Summer Academy Science Teacher}, Student U, Durham, NC, 2014
+%\item \textmyfont{Engineering Ambassador}, NC State, 2011 - 2013  
+%\end{outline-cond} 
 
-\section{ TEACHING \& MENTORSHIP}
+\section{PATENTS}
 \begin{outline-cond} 
-\item \textmyfont{BME 521 TA}, Biomedical Electronics at NC State, Spring 2014
-\item \textmyfont{BME 290L TA}, Medtech Device Prototyping Skills at Duke, Spring 2016
-\item \textmyfont{Duke MIDS Capstone Advisor}, Logo Detection at Proofpoint, 2021-2022
-\item \textmyfont{High School Tutor}, Student U, Durham, NC, 2015 - 2017
-\item \textmyfont{FIRST Lego Robotics Coach}, Student U, Durham, NC, 2014 - 2015
-\item \textmyfont{Summer Academy Science Teacher}, Student U, Durham, NC, 2014
-\item \textmyfont{Engineering Ambassador}, NC State, 2011 - 2013  
+	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20220414324}{Augmented Natural Language Generation Platform}}, Automated Insights, 2019
+	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11586739}{Method for Identifying Threats From Social Media Content}}, Proofpoint, 2022
+	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11526710}{Systems and Methods For Promissory Image Classification}}, Proofpoint, 2022
 \end{outline-cond} 
+
+\section{PAPERS}
+\begin{outline-cond}
+	\item \textmyfont{D Salo}, H Zhang, DM Kim, MY Berezin. \textit{Multispectral measurement of contrast in tissue-mimicking phantoms in near-infrared spectral range of 650 to 1600 nm}. Journal of Biomedical Optics, 2014.
+	\item H Zhang, \textmyfont{D Salo}, DM Kim, S Komarov, YC Tai, MY Berezin. \textit{Penetration depth of photons in biological tissues from hyperspectral imaging in shortwave infrared in transmission and reflection geometries}. Journal of Biomedical Optics, 2015.
+\end{outline-cond}
 
 
 %----------------------------------------------------------------------------------------

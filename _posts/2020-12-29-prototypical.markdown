@@ -77,4 +77,4 @@ The promise holds true! Prototypical networks can successfully embed objects wit
 Speaking of extensions, my initial goal for this deep dive was to find a suitable method for label-efficient object detection for my work at Proofpoint. However, after looking through the recent literature, simpler approaches seem to be yielding superior results. For instance, [Frustratingly Simple Few Shot Object Detection](https://arxiv.org/pdf/2003.06957.pdf) fine-tunes the last layer of a Faster R-CNN network in a two-stage sequence for state-of-the-art results on PASCAL VOC, COCO and LVIS.
 
 ### Acknowledgements
-Thanks to the MLLABS team at Proofpoint for engaging with my lightning talk on this topic several months ago.
+Thanks to the ML Labs organization at Proofpoint for engaging with my lightning talk on this topic several months ago.
