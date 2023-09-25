@@ -20,7 +20,8 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[resmargin, 11pt]{resume_style_class} % Use the res.cls style, the font size can be changed to 11pt or 12pt here
+\documentclass[resmargin]{resume_style_class} % Use the res.cls style, the font size can be changed to 11pt or 12pt here
+\usepackage{setspace}
 
 \topmargin=-0.5in
 \oddsidemargin -.4in
@@ -68,7 +69,7 @@
 \end{minipage}
 \begin{minipage}[t][1cm][b]{0.5\resumewidth}
 \footnotesize
-\raggedleft Forestwood Drive, Durham, NC \\  \texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm}  \texttt{\href{https://dancsalo.github.io/}{dancsalo.github.io}}
+\raggedleft \texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm} (919) 698-2742 \\ \texttt{\href{https://github.com/dancsalo}{Github}} \hspace{0.1cm}\textbullet \hspace{0.1cm} \texttt{\href{https://www.linkedin.com/in/dancsalo/}{LinkedIn}} \hspace{0.1cm}\textbullet \hspace{0.1cm}  \texttt{\href{https://dancsalo.github.io/}{Website}}
 \end{minipage}
 
 \smallskip
@@ -83,26 +84,70 @@
 
  
 \section{WORK \\ EXPERIENCE}
-\textmyfont{Data Science Manager}, Proofpoint, Durham, NC \hfill 2022 - Pres.
+\begin{large} \textmyfont{Proofpoint} \end{large} \hfill Durham, NC
+\vspace{5pt} \\
+\textit{Machine Learning Manager and Tech Lead (Apr 2022 - Present)}
+\vspace{2pt}
 \begin{outline}
-	\item[$\bullet$\hspace{0.1cm}] Leading a team of engineers and data scientists to create and maintain ML models for three Proofpoint products: 4 models in production, 2 more by EOY.
-	\item[$\bullet$\hspace{0.1cm}] Collaborating with MLOps to architect solutions for model versioning, deployment pipelines, and production monitoring within our ML Platform.
-	\item[$\bullet$\hspace{0.1cm}] Revamped the onboarding and interview process, mentored multiple summer interns, and co-organized remote social events for the ML Labs organization.
+	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Text-to-SQL}: tech lead for LLM-implementation to enable NL querying of data in the Cloud Protection Platform. Slated for production Q1 2024.
+	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Form Recognition for DLP}: leading a team of 3 engineers and data scientists. Similarity search algorithm for customer-specific sensitive forms. Slated for production Q4 2023.
+	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Machine Assisted Triage for ITM}: led a team of 2 engineers. Instance-based anomaly detection algorithm for high-FP insider threat alerts. In prod Q1 2023, precision > 99\%.
 \end{outline} 
-\textmyfont{Senior Data Scientist}, Proofpoint, Durham, NC \hfill 2021 - 2022 \\
-\textmyfont{Data Scientist} \hfill 2019 - 2021
+\textit{Data Scientist (May 2019 - Jul 2021)}, \textit{Senior Data Scientist (Aug 2021 - Mar 2022)}
+\vspace{2pt}
 \begin{outline}
-	\item[$\bullet$\hspace{0.1cm}] Responsible for performance of all ML models within \href{https://www.proofpoint.com/us/products/archiving-and-compliance/patrol}{Proofpoint Patrol} product.
-	\item[$\bullet$\hspace{0.1cm}] Deployed 3 new models for social media classification: BERT NER model for locations, FastText classifier for complaints, patented promissory image classifier.
-	\item[$\bullet$\hspace{0.1cm}] Created customer-facing model cards and evaluation dashboards for all classifiers.
+	\item[$\bullet$\hspace{0.1cm}]  \textmyfont{\href{https://www.proofpoint.com/us/products/archiving-and-compliance/patrol}{Proofpoint Patrol} data science tech lead}: responsible for the maintenance, evaluation, and latency of 54 classifiers across 100's of customers, processing 100k's of social media posts daily. Trained my replacement in 2022.
+	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Promissory Images Classifier}: designed and delivered an image classification system that detects images that may make a promise of financial gain. Organized an in-house annotation team to acquire labels. Published a \href{https://www.proofpoint.com/us/blog/engineering-insights/development-of-the-promissory-images-classifier}{Proofpoint blog post} and a \href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11526710}{patent}.
+	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Physical Locations Classifier}: delivered an NER model to detect mentions of a location with an address. Significant increase in accuracy and latency by replacing BiLSTM-CRF with DistilBERT. Delivered the required 90\% precision. 
+	\item[$\bullet$\hspace{0.1cm}]  \textmyfont{NLP Classifier Framework}: ideated and implemented a spaCy-centric framework to serve all classifiers (rules-based and ML). Patented one \href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11586739}{classifier}.
+	\item[$\bullet$\hspace{0.1cm}]  \textmyfont{Data Science Dashboard}: designed and deployed evaluation dashboards and documentation for all classifiers using Streamlit and Postgres on AWS.
 \end{outline} 
 
-\textmyfont{Senior Data Scientist}, Automated Insights, Durham, NC \hfill 2018 - 2019 \\
-\textmyfont{Data Scientist} \hfill 2017 - 2018
+\begin{large} \textmyfont{Automated Insights} \end{large} \hfill Durham, NC
+\vspace{5pt} \\
+\textit{Senior Data Scientist (Dec 2018 - Apr 2019)}, \textit{Data Scientist (Aug 2017 - Nov 2018)}
+\vspace{2pt}
 \begin{outline}
-	\item[$\bullet$\hspace{0.1cm}] Deployed a contextual synonym suggester using custom word vectors.
-	\item[$\bullet$\hspace{0.1cm}] Designed, prototyped, and patented a natural language generation system for BI dashboards alongside software engineers, designer, and product manager.
+	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Augmented NLG}: Designed and prototyped a natural language generation system as an add-on feature for BI dashboards. Published a  \href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20220414324}{patent}.
+	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Contextual Synonym Suggester}: productionized the custom word vectors (trained using gensim and Common Crawl) with AWS services and Flask and Docker.
 \end{outline} 
+
+
+%\section{PATENTS}
+%\begin{outline-cond} 
+%	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20220414324}{Augmented Natural Language Generation Platform}}, Automated Insights, 2019
+%	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11586739}{Method for Identifying Threats From Social Media Content}}, Proofpoint, 2022
+%	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11526710}{Systems and Methods For Promissory Image Classification}}, Proofpoint, 2022
+%\end{outline-cond} 
+
+\section{TECHNICAL SKILLS}
+\begin{outline-cond} 
+	\item  \textmyfont{Languages}: Python, Bash, SQL, Terraform, Javascript, Go
+	\item  \textmyfont{Technologies}: PyTorch, HuggingFace, scikit-learn, NumPy, Pandas, Docker, Sagemaker, Athena, Postgres, Cassandra
+\end{outline-cond} 
+
+%\section{TEACHING \& MENTORSHIP}
+%\begin{outline-cond} 
+%\item \textmyfont{BME 521 TA}, Biomedical Electronics at NC State, Spring 2014
+%\item \textmyfont{BME 290L TA}, Medtech Device Prototyping Skills at Duke, Spring 2016
+%\item \textmyfont{Duke MIDS Capstone Advisor}, Logo Detection at Proofpoint, 2021-2022
+%\item \textmyfont{High School Tutor}, Student U, Durham, NC, 2015 - 2017
+%\item \textmyfont{FIRST Lego Robotics Coach}, Student U, Durham, NC, 2014 - 2015
+%\item \textmyfont{Summer Academy Science Teacher}, Student U, Durham, NC, 2014
+%\item \textmyfont{Engineering Ambassador}, NC State, 2011 - 2013  
+%\end{outline-cond} 
+
+\section{ACADEMIC ENGAGEMENT}
+\begin{outline-cond} 
+	\item \textmyfont{Duke MIDS Capstone Advisor}: advised different groups of 3-5 Masters students since 2020. \\Logo Detection (2021), ML Churn Reduction (2022), Low-latency Transformers (2023).
+	\item \textmyfont{Duke Stats Seminar Presenter}: co-presented about \href{https://stat.duke.edu/events/machine-learning-metamorphosis-breaking-models-out-your-local-machine-and-releasing-them}{ML Production} to the Masters program. 
+	\item \textmyfont{Washington State University Collaborator}: managing the joint-collaboration with Proofpoint on conformal predictions for binary classifiers.
+	\item \textmyfont{Summer Intern Mentor}: managed one undergrad/grad student during summers of 2021-2023.
+\end{outline-cond} 
+
+
+
+
 
 \section{EDUCATION}
 
@@ -118,38 +163,20 @@
 	\item Bioinstrumentation Concentration. Minor in Piano Performance.
 \end{outline}
 
-%\section{TEACHING \& MENTORSHIP}
-%\begin{outline-cond} 
-%\item \textmyfont{BME 521 TA}, Biomedical Electronics at NC State, Spring 2014
-%\item \textmyfont{BME 290L TA}, Medtech Device Prototyping Skills at Duke, Spring 2016
-%\item \textmyfont{Duke MIDS Capstone Advisor}, Logo Detection at Proofpoint, 2021-2022
-%\item \textmyfont{High School Tutor}, Student U, Durham, NC, 2015 - 2017
-%\item \textmyfont{FIRST Lego Robotics Coach}, Student U, Durham, NC, 2014 - 2015
-%\item \textmyfont{Summer Academy Science Teacher}, Student U, Durham, NC, 2014
-%\item \textmyfont{Engineering Ambassador}, NC State, 2011 - 2013  
-%\end{outline-cond} 
-
-\section{PATENTS}
-\begin{outline-cond} 
-	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20220414324}{Augmented Natural Language Generation Platform}}, Automated Insights, 2019
-	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11586739}{Method for Identifying Threats From Social Media Content}}, Proofpoint, 2022
-	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11526710}{Systems and Methods For Promissory Image Classification}}, Proofpoint, 2022
-\end{outline-cond} 
-
-\section{PAPERS}
-\begin{outline-cond}
-	\item \textmyfont{D Salo}, H Zhang, DM Kim, MY Berezin. \textit{Multispectral measurement of contrast in tissue-mimicking phantoms in near-infrared spectral range of 650 to 1600 nm}. Journal of Biomedical Optics, 2014.
-	\item H Zhang, \textmyfont{D Salo}, DM Kim, S Komarov, YC Tai, MY Berezin. \textit{Penetration depth of photons in biological tissues from hyperspectral imaging in shortwave infrared in transmission and reflection geometries}. Journal of Biomedical Optics, 2015.
-\end{outline-cond}
+%\section{PAPERS}
+%\begin{outline-cond}
+%	\item \textmyfont{D Salo}, H Zhang, DM Kim, MY Berezin. \textit{Multispectral measurement of contrast in tissue-mimicking phantoms in near-infrared spectral range of 650 to %1600 nm}. Journal of Biomedical Optics, 2014.
+%	\item H Zhang, \textmyfont{D Salo}, DM Kim, S Komarov, YC Tai, MY Berezin. \textit{Penetration depth of photons in biological tissues from hyperspectral imaging in shortwave %infrared in transmission and reflection geometries}. Journal of Biomedical Optics, 2015.
+%\end{outline-cond}
 
 
 %----------------------------------------------------------------------------------------
-\section{HONORS}
-Proofpoint Critical Impact Award (2019),
-Automated Insights Hackathon 3rd place (2018),
-NSF GRFP Honorable Mention (2016),
-James B. Duke Fellowship (2014),
-NC State Goldwater Nomination (2013),
-NC State Caldwell Fellow (2010)
+%\section{HONORS}
+%Proofpoint Critical Impact Award (2019),
+%Automated Insights Hackathon 3rd place (2018),
+%NSF GRFP Honorable Mention (2016),
+%James B. Duke Fellowship (2014),
+%NC State Goldwater Nomination (2013),
+%NC State Caldwell Fellow (2010)
 \end{resume}
 \end{document}
