@@ -9,14 +9,14 @@ sitemap:
   exclude: 'no'
 ---
 
-Hi! My name is Dan. I work at <a href="https://www.proofpoint.com/us">Proofpoint</a> as a Data Science Manager and Tech Lead. Our team of data scientists and engineers collaborates with three different product lines (Patrol, Enterprise DLP, Protection Platform) to produce machine learning features that solve real problems for our customers.
+Hi! My name is Dan. I work at <a href="https://www.proofpoint.com/us">Proofpoint</a> as a Machine Learning Manager and Tech Lead. Our team of data scientists and engineers collaborates with three different product lines (Patrol, Enterprise DLP, Protection Platform) to produce machine learning features that solve real problems for our customers.
 
-I stepped into a technical manager and tech lead role in April 2022. My role as manager and my background in data science has allowed me to teach and mentor on the job, which I've really enjoyed. My role as tech lead has pushed me to manage multiple projects simultaneously within our team, create milestones and roadmaps with product managers, and coordinate improvements to our internal machine learning infrastructure with engineering groups.
+I stepped into a technical manager and tech lead role in April 2022. My role as manager and my background in data science has allowed me to teach and mentor on the job, which I've really enjoyed. My role as tech lead has pushed me to manage multiple projects simultaneously within our team, create milestones and roadmaps with product managers, and coordinate improvements to our internal machine learning infrastructure.
 
-I am passionate about delivering value to customers by choosing the right (which is usually the simplest) tool for the task. I believe in humble confidence and open collaboration builds strong culture. I love working with individual team members to match their passions with business needs.
+I am passionate about delivering value to customers by choosing the right (which is usually the simplest) tool for the task. I believe that humble confidence and open collaboration builds strong culture. I love working with individual team members to match their passions and skills with business needs.
 
 
-### Dissmenation
+### Dissemination
 * [ML in Production](https://stat.duke.edu/events/machine-learning-metamorphosis-breaking-models-out-your-local-machine-and-releasing-them): Duke Statistical Sciences Proseminar, February 1st, 2023
 * [Promissory Image Classifier](https://www.proofpoint.com/us/blog/engineering-insights/development-of-the-promissory-images-classifier): Proofpoint Engineering Blog, June 14th, 2023
 
