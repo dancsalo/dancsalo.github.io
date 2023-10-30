@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.20)  12 OCT 2023 14:12
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.20)  30 OCT 2023 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -375,12 +375,6 @@ Package fontspec Info: Font family 'Fontin(0)' created for font 'Fontin' with
 
 LaTeX Font Warning: Font shape `TU/Fontin(0)/bx/n' undefined
 (Font)              using `TU/Fontin(0)/m/n' instead on input line 86.
-
-
-Overfull \hbox (1.5802pt too wide) in paragraph at lines 126--127
-[]\TU/Fontin(0)/m/n/10 Technologies\TU/lmr/m/n/10 : PyTorch, TensorFlow, Huggin
-gFace, scikit-learn, NumPy, Pandas, spaCy, Docker 
- []
 
 [1
 
