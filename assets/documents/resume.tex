@@ -1,183 +1,194 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Medium Length Graduate Curriculum Vitae
-% LaTeX Template
-% Version 1.1 (9/12/12)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Rensselaer Polytechnic Institute (http://www.rpi.edu/dept/arc/training/latex/resumes/)
-%
-% Important note:
-% This template requires the res.cls file to be in the same directory as the
-% .tex file. The res.cls file provides the resume style used for structuring the
-% document.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,11pt]{article}
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
-\documentclass[resmargin]{resume_style_class} % Use the res.cls style, the font size can be changed to 11pt or 12pt here
-\usepackage{setspace}
-
-\topmargin=-0.5in
-\oddsidemargin -.4in
-
-\usepackage{fontspec}
-\usepackage{hyperref}
-
-\renewcommand{\sectionfont}{\bf\large\fontspec{Fontin}}
-
-\newenvironment{myfont}{\fontspec{Fontin}\selectfont}{\par}
-\DeclareTextFontCommand{\textmyfont}{\myfont}
-
-\setlength{\textheight}{10.5in}
-
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage[left=2.2cm,right=2.2cm,bottom=2.2cm,top=1.5cm]{geometry}
 \usepackage{tabularx}
+\usepackage{scrextend}
+\input{glyphtounicode}
 
-\newcommand\textline[3]{%
-  \hspace{-\hoffset} \parbox{0.5\textwidth}{\raggedright \Huge \usefont{OT1}{phv}{b}{n} #1 \par \normalsize \normalfont}%
-  \parbox{.333\textwidth}{\raggedleft\texttt{#3}}\par\smallskip%
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+\newcommand{\skillsItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2}
+  }
 }
 
-\newenvironment{outline}
-  {\begin{list}{}{\setlength{\leftmargin}{30pt}\setlength\itemsep{-2pt}}}
-  {\end{list}}
-  
-\newenvironment{outline-cond}
-  {\begin{list}{}{
-  \setlength{\leftmargin}{30pt}
-  \setlength\topsep{-10pt}
-  \setlength\itemindent{-30pt}
-  }}
-  {\end{list}}
 
-\usepackage{array}
-\newcolumntype{C}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small{#3}} & \textit{\small{#4}} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+   \begin{addmargin}[1em]{0em}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+    \end{addmargin}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+
+\newcommand{\resumeJob}[3]{
+   \vspace{3pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+    \end{tabular*}\vspace{4pt}
+   \small{#3} \vspace{6pt}
+}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{document}
 
-%----------------------------------------------------------------------------------------
-%	NAME AND ADDRESS SECTION
-%----------------------------------------------------------------------------------------
 
-\begin{minipage}[t][1cm][b]{0.3\resumewidth}
+\begin{minipage}[t][1cm][b]{0.3\textwidth}
 \hspace{-\hoffset}\raggedright \Huge \usefont{OT1}{phv}{b}{n} Dan Salo \normalsize
 \end{minipage}
-\begin{minipage}[t][1cm][b]{0.5\resumewidth}
+\begin{minipage}[t][1cm][b]{0.69\textwidth}
 \footnotesize
 \raggedleft \texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm} (919) 698-2742 \\ \texttt{\href{https://github.com/dancsalo}{Github}} \hspace{0.1cm}\textbullet \hspace{0.1cm} \texttt{\href{https://www.linkedin.com/in/dancsalo/}{LinkedIn}} \hspace{0.1cm}\textbullet \hspace{0.1cm}  \texttt{\href{https://dancsalo.github.io/about/}{Website}}
 \end{minipage}
 
 \smallskip
+\smallskip
+\smallskip
 
-\moveleft\hoffset\vbox{\hrule width\resumewidth height 2pt}% Horizontal line after name; adjust line thickness by changing the '1pt'
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\resumeJob{Proofpoint}{Durham, NC}{Email cybersecurity leader for the Fortune 100. Tech Lead for five years in central machine learning organization.}
 
+\resumeSubSubheading{Machine Learning Manager}{April 2022 - Present}
+      \resumeItemListStart
+        \resumeItem{LLM Initiatives Team}
+          {Leading the research and POCs on low-latency techniques for LLMs (quantization, pruning, finetuning, hardware), agentic workflows for security operations, RAG architectures for business operations.}
+        \resumeItem{ML Platform Team}
+          {Designing a new environment for model development to replace SageMaker-centric platform. Leveraging Pachyderm, Prefect, MLFlow, all running on kubernetes. Managing 30 different projects across the company.}
+        \resumeItem{DLP ML Team}{Currently releasing Custom Form classification feature for 1000's of DLP accounts based on single instance of a customer-uploaded sensitive form. Leveraging deep metric learning running in AWS Lambda and ECS. }
+      \resumeItemListEnd
 
+\smallskip
+\smallskip
 
-%----------------------------------------------------------------------------------------
+\resumeSubSubheading{Senior Data Scientist \& Data Scientist}{May 2019 - April 2022}
+      \resumeItemListStart
+        \resumeItem{Triage Alert Classifier}
+          {automatic categorization of security alerts for analysts. Leveraging XGBoost and approximate NN. Saving average of 3 hours per account with accuracy of 99\%.}
+        \resumeItem{Promissory Images Classifier}{designed and delivered an image classification system for financially promissory image detection. Leveraging object detection, classical ML, and approximate NN. Key differentiator for all finserv customers. Precision/recall maintaining over 24+ months with retrainings and annotation. Created, tuned autoscaling deployment.}
+	\resumeItem{NLP Classifier System}{implemented and maintained and scaled a spaCy-centric framework to
+serve 54 NLP classifiers over 100Ks social media posts daily across 1000's of customers. Addressed customers FP/FNs weekly.}
+	\resumeItem{Physical Locations Classifier}{constructed custom dataset of 1000's of spans for an NER model to detect mentions of a location
+with an address. Selected DistilBERT over BiLSTM-CRF. Enabled for hundreds of Patrol Security accounts.}
+      \resumeItemListEnd
 
-\begin{resume}
-
- 
-\section{WORK \\ EXPERIENCE}
-\begin{large} \textmyfont{Proofpoint} \end{large} \hfill Durham, NC
-\vspace{5pt} \\
-\textit{Machine Learning Manager and Tech Lead (Apr 2022 - Present)}
-\vspace{2pt}
-\begin{outline}
-	\item[$\bullet$\hspace{0.1cm}] \textmyfont{ML Platform 2.0}: leading a team of 4. Migrating from SageMaker to K8s ecosystem. Managing data access for and supporting 8 models in production. 
-	\item[$\bullet$\hspace{0.1cm}] \textmyfont{KD for LLMs}: leading a team of 3. Distilling LLMs to low-latency surfacing of semantic labels relevant to phishing for threat analysts. Processing 1M emails daily.
-	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Form Recognition for DLP}: led a team of 3. Visual similarity search algorithm for customer-specific sensitive forms. Processing 10Ks images daily. Precision > 95\%. 
-	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Machine Assisted Triage for ITM}: led a team of 3. Instance-based multi-class algorithm for insider threat alerts. Processing 1Ks alerts daily. Precision > 99\%.
-\end{outline} 
-\textit{Data Scientist (May 2019 - Jul 2021)}, \textit{Senior Data Scientist (Aug 2021 - Mar 2022)}
-\vspace{2pt}
-\begin{outline}
-	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Promissory Images Classifier}: designed and delivered an image classification system for financially promissory images. Leveraging object detection and classical ML. Published a \href{https://www.proofpoint.com/us/blog/engineering-insights/development-of-the-promissory-images-classifier}{Proofpoint blog post} and a \href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11526710}{patent}.
-	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Physical Locations Classifier}: delivered an NER model to detect mentions of a location with an address by fine-tuning DistilBERT instead of BiLSTM-CRF. Precision > 95\%. 
-	\item[$\bullet$\hspace{0.1cm}]  \textmyfont{NLP Classifier Framework}: implemented and maintained a spaCy-centric framework to serve 54 NLP classifiers over 100Ks social media posts daily. Patented one \href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11586739}{classifier}.
-	% \item[$\bullet$\hspace{0.1cm}]  \textmyfont{Data Science Dashboard}: designed and deployed evaluation dashboards and documentation for all classifiers using Streamlit and Postgres on AWS.
-\end{outline} 
-
-\begin{large} \textmyfont{Automated Insights} \end{large} \hfill Durham, NC
-\vspace{5pt} \\
-\textit{Senior Data Scientist (Dec 2018 - Apr 2019)}, \textit{Data Scientist (Aug 2017 - Nov 2018)}
-\vspace{2pt}
-\begin{outline}
-	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Augmented NLG}: designed and prototyped a natural language generation system as an add-on feature for BI dashboards. Published a  \href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20220414324}{patent}.
-	\item[$\bullet$\hspace{0.1cm}] \textmyfont{Contextual Synonym Suggester}: productionized custom word vectors trained using gensim and Common Crawl for synonym suggestion. Processing 100s of requests daily.
-\end{outline} 
+\smallskip
+\smallskip
 
 
-%\section{PATENTS}
-%\begin{outline-cond} 
-%	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20220414324}{Augmented Natural Language Generation Platform}}, Automated Insights, 2019
-%	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11586739}{Method for Identifying Threats From Social Media Content}}, Proofpoint, 2022
-%	\item  \textmyfont{\href{https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11526710}{Systems and Methods For Promissory Image Classification}}, Proofpoint, 2022
-%\end{outline-cond} 
+\resumeJob{Automated Insights}{Durham, NC}{Natural language generation startup before NLP had its Imagenet moment. Lead Data Scientist on two projects.}
 
-\section{TECHNICAL SKILLS}
-\begin{outline-cond} 
-	\item \textmyfont{Languages}: Python, Bash, Git, SQL, Terraform, Javascript, Go
-	\item \textmyfont{Technologies}: PyTorch, TensorFlow, scikit-learn, XGBoost, NumPy, Pandas, spaCy, Docker, OpenCV, MLflow, DVC, Elasticsearch, Postgres, Cassandra, LangChain, AWS stack
-	\item \textmyfont{Techniques}: Linear \& Tree-based Models, CNNs, RNNs, GNNs, Transformers, Approximate NN, Clustering, Knowledge Distillation, Semi-Supervised (PU, Weak, Metric)
-\end{outline-cond} 
+\resumeSubSubheading{Senior Data Scientist \& Data Scientist}{July 2017 - May 2019}
+      \resumeItemListStart
+        \resumeItem{Augmented NLG}
+          {Designed and prototyped a natural language generation system using Node.js, React as an add-on feature for BI dashboards. Published a patent.}
+        \resumeItem{Contextual Synonym Suggester}
+          {Productionized custom word vectors trained using gensim and Common Crawl for synonym suggestion as a Flask microservice. Core ML feature of Wordsmith product.}
+      \resumeItemListEnd
 
-%\section{TEACHING \& MENTORSHIP}
-%\begin{outline-cond} 
-%\item \textmyfont{BME 521 TA}, Biomedical Electronics at NC State, Spring 2014
-%\item \textmyfont{BME 290L TA}, Medtech Device Prototyping Skills at Duke, Spring 2016
-%\item \textmyfont{Duke MIDS Capstone Advisor}, Logo Detection at Proofpoint, 2021-2022
-%\item \textmyfont{High School Tutor}, Student U, Durham, NC, 2015 - 2017
-%\item \textmyfont{FIRST Lego Robotics Coach}, Student U, Durham, NC, 2014 - 2015
-%\item \textmyfont{Summer Academy Science Teacher}, Student U, Durham, NC, 2014
-%\item \textmyfont{Engineering Ambassador}, NC State, 2011 - 2013  
-%\end{outline-cond} 
 
-\section{ACADEMIC ENGAGEMENT}
-\begin{outline-cond} 
-	\item \textmyfont{Duke MIDS Capstone Advisor}: advised different groups of 3-5 Masters students since 2020. \\Logo Detection (2021), ML Churn Reduction (2022), Low-latency Transformers (2023).
-	%\item \textmyfont{Duke Stats Seminar Presenter}: co-presented about \href{https://stat.duke.edu/events/machine-learning-metamorphosis-breaking-models-out-your-local-machine-and-releasing-them}{ML Production} to the Masters program. 
-	\item \textmyfont{Washington State University Collaborator}: managing the joint-collaboration with Proofpoint on conformal predictions for binary classifiers.
-	\item \textmyfont{Summer Intern Mentor}: managed one undergrad/grad student during summers of 2021-2023.
-\end{outline-cond} 
+\smallskip
+\smallskip
+
+\resumeJob{Duke University}{Durham, NC}{PhD Program in Machine Learning Lab led by Larry Carin. Mastered out to take first job at Automated Insights.}
+
+\resumeSubSubheading{PhD Research Assistant}{Aug 2014 - July 2017}
+      \resumeItemListStart
+        \resumeItem{Weapons Detection in TSA Bag Scans}
+          {Research on VAE and applied object detection (i.e. YOLO, Faster-RCNN) to X-ray images for high-precision detection of guns, knives. Published open-source \href{https://github.com/dancsalo/TensorFlow-VAE}{VAE library} in Tensorflow.}
+        \resumeItem{Optical Detection of Cancer}
+          {Research on multiple instance learning and applied tree-based models for classifying optical scans of breast cancer tissue. Published open-source \href{https://github.com/dancsalo/TensorFlow-MIL}{MIL library} in Tensorflow.}
+      \resumeItemListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Technical Skills}
+  \resumeSubHeadingListStart
+   \skillsItem{Languages}{Python, Bash, Git, SQL, Terraform, Javascript, Go}
+  \skillsItem{Techniques}{Linear \& Tree-based Models, CNNs, RNNs, GNNs, Autoencoders, Transformers, Approximate
+NN, Clustering, Knowledge Distillation, Semi-Supervised Classification (PU, Weak, Metric)}
+   \skillsItem{Technologies}{PyTorch, TensorFlow, scikit-learn, XGBoost, NumPy, Pandas, spaCy, Docker,
+OpenCV, Pachyderm, DVC, MLflow, Prefect, k8s, Elasticsearch, Postgres, MySQL, Cassandra, LangChain, VertexAI, SageMaker, AWS/GCP Stack}
+  \resumeSubHeadingListEnd
 
 
 
 
 
-\section{EDUCATION}
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Duke University}{Durham, NC}
+      {Master of Science in Electrical Engineering}{2014 - 2017}
+    \resumeSubheading
+      {North Carolina State University}{Raleigh, NC}
+      {Bachelor of Science in Biomedical Engineering}{2010 - 2014}
+  \resumeSubHeadingListEnd
 
-\textmyfont{M.S. in Engineering}, Duke University \hfill 2017
-\begin{outline}
-	\item Abdicated PhD Student
-	\item \href{https://bme.duke.edu/faculty/nimmi-ramanujam}{Dr. Nimmi Ramanujam} (BME): Point-of-Care Optical Cancer Imaging
-	\item \href{https://scholar.google.com/citations?user=ZhGL6WcAAAAJ&hl=en}{Dr. Larry Carin} (ECE): Deep Learning for Threat Detection in TSA Bag Scans
-\end{outline}
-
-\textmyfont{B.Sc. in Biomedical Engineering}, NC State University \hfill 2014
-\begin{outline}
-	\item Bioinstrumentation Concentration. Minor in Piano Performance.
-\end{outline}
-
-%\section{PAPERS}
-%\begin{outline-cond}
-%	\item \textmyfont{D Salo}, H Zhang, DM Kim, MY Berezin. \textit{Multispectral measurement of contrast in tissue-mimicking phantoms in near-infrared spectral range of 650 to %1600 nm}. Journal of Biomedical Optics, 2014.
-%	\item H Zhang, \textmyfont{D Salo}, DM Kim, S Komarov, YC Tai, MY Berezin. \textit{Penetration depth of photons in biological tissues from hyperspectral imaging in shortwave %infrared in transmission and reflection geometries}. Journal of Biomedical Optics, 2015.
-%\end{outline-cond}
-
-
-%----------------------------------------------------------------------------------------
-%\section{HONORS}
-%Proofpoint Critical Impact Award (2019),
-%Automated Insights Hackathon 3rd place (2018),
-%NSF GRFP Honorable Mention (2016),
-%James B. Duke Fellowship (2014),
-%NC State Goldwater Nomination (2013),
-%NC State Caldwell Fellow (2010)
-\end{resume}
 \end{document}
