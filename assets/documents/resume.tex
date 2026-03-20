@@ -13,7 +13,15 @@
 \usepackage[left=2.2cm,right=2.2cm,bottom=2.2cm,top=1.5cm]{geometry}
 \usepackage{tabularx}
 \usepackage{scrextend}
-\input{glyphtounicode}
+
+% --- Engine detection (pdfLaTeX compatible) ---
+\usepackage{iftex}
+
+% --- ATS / searchable PDF helpers (pdfLaTeX only) ---
+\ifPDFTeX
+\IfFileExists{glyphtounicode.tex}{\input{glyphtounicode.tex}}{}%
+\pdfgentounicode=1
+\fi
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -36,40 +44,43 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
+	\vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
 
 %-------------------------
 % Custom commands
+
+\newcommand{\resumeEducation}[3]{
+	\vspace{-1pt}\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} --- #2 & \textit{#3} \\
+	\end{tabular*}\vspace{-5pt}
+}
 \newcommand{\resumeItem}[2]{
-  \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
-  }
+	\item\small{
+		\textbf{#1}{: #2 \vspace{-2pt}}
+	}
 }
 \newcommand{\skillsItem}[2]{
-  \item\small{
-    \textbf{#1}{: #2}
-  }
+	\item\small{
+		\textbf{#1}{: #2}
+	}
 }
 
-
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small{#3}} & \textit{\small{#4}} \\
-    \end{tabular*}\vspace{-5pt}
+	\vspace{-1pt}\item
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{\small{#3}} & \textit{\small{#4}} \\
+	\end{tabular*}\vspace{-5pt}
 }
 
 \newcommand{\resumeSubSubheading}[2]{
-   \begin{addmargin}[1em]{0em}
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-5pt}
-    \end{addmargin}
+	\begin{addmargin}[1em]{0em}
+		\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+			\textit{#1} & \textit{\small #2} \\
+		\end{tabular*}\vspace{-5pt}
+	\end{addmargin}
 }
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
@@ -77,118 +88,124 @@
 \renewcommand{\labelitemii}{$\circ$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+	\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-
+	\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \newcommand{\resumeJob}[3]{
-   \vspace{3pt}
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-    \end{tabular*}\vspace{4pt}
-   \small{#3} \vspace{6pt}
+	\vspace{3pt}
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+	\end{tabular*}\vspace{4pt}
+	\small{#3} \vspace{6pt}
 }
 
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{document}
-
-
-\begin{minipage}[t][1cm][b]{0.3\textwidth}
-\hspace{-\hoffset}\raggedright \Huge \usefont{OT1}{phv}{b}{n} Dan Salo \normalsize
-\end{minipage}
-\begin{minipage}[t][1cm][b]{0.69\textwidth}
-\footnotesize
-\raggedleft \texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm} (919) 698-2742 \\ \texttt{\href{https://github.com/dancsalo}{Github}} \hspace{0.1cm}\textbullet \hspace{0.1cm} \texttt{\href{https://www.linkedin.com/in/dancsalo/}{LinkedIn}} \hspace{0.1cm}\textbullet \hspace{0.1cm}  \texttt{\href{https://dancsalo.github.io/about/}{Website}}
-\end{minipage}
-
-\smallskip
-\smallskip
-\smallskip
-
-%-----------EXPERIENCE-----------------
-\section{Experience}
-\resumeJob{Proofpoint}{Durham, NC}{Email cybersecurity leader for the Fortune 100. Tech Lead for five years in central machine learning organization.}
-
-\resumeSubSubheading{Machine Learning Manager}{April 2022 - Present}
-      \resumeItemListStart
-        \resumeItem{LLM Initiatives Team}
-          {Leading the research and POCs on low-latency techniques for LLMs (quantization, pruning, finetuning, hardware), agentic workflows for security operations, RAG architectures for business operations.}
-        \resumeItem{ML Platform Team}
-          {Designing a new environment for model development to replace SageMaker-centric platform. Leveraging Pachyderm, Prefect, MLFlow, all running on kubernetes. Managing 30 different projects across the company.}
-        \resumeItem{DLP ML Team}{Currently releasing Custom Form classification feature for 1000's of DLP accounts based on single instance of a customer-uploaded sensitive form. Leveraging deep metric learning running in AWS Lambda and ECS. }
-      \resumeItemListEnd
-
-\smallskip
-\smallskip
-
-\resumeSubSubheading{Senior Data Scientist \& Data Scientist}{May 2019 - April 2022}
-      \resumeItemListStart
-        \resumeItem{Triage Alert Classifier}
-          {automatic categorization of security alerts for analysts. Leveraging XGBoost and approximate NN. Saving average of 3 hours per account with accuracy of 99\%.}
-        \resumeItem{Promissory Images Classifier}{designed and delivered an image classification system for financially promissory image detection. Leveraging object detection, classical ML, and approximate NN. Key differentiator for all finserv customers. Precision/recall maintaining over 24+ months with retrainings and annotation. Created, tuned autoscaling deployment.}
+	
+	\begin{minipage}[t][1cm][b]{0.3\textwidth}
+		\hspace{-\hoffset}\raggedright \Huge \usefont{OT1}{phv}{b}{n} Dan Salo \normalsize
+	\end{minipage}
+	\begin{minipage}[t][1cm][b]{0.69\textwidth}
+		\footnotesize
+		\raggedleft \texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm} (919) 698-2742 \\ \texttt{\href{https://github.com/dancsalo}{Github}} \hspace{0.1cm}\textbullet \hspace{0.1cm} \texttt{\href{https://www.linkedin.com/in/dancsalo/}{LinkedIn}} \hspace{0.1cm}\textbullet \hspace{0.1cm}  \texttt{\href{https://dancsalo.github.io}{Website}}
+	\end{minipage}
+	
+	\smallskip
+	\smallskip
+	\smallskip
+	
+	%-----------EXPERIENCE-----------------
+	\section{Experience}
+	\resumeJob{Proofpoint}{Durham, NC}{Email cybersecurity leader for the Fortune 100. Tech Lead for 7 years on various teams  within central AI/ML organization.}
+	
+	\resumeSubSubheading{Staff Machine Learning Scientist}{May 2024 - Present}
+	\resumeItemListStart
+	\resumeItem{Agentic Webpage Sandbox}
+	{Technical architect for new AI/ML team in Cork, Ireland, leading a team of 4 engineers to integrate specialized agents into the dynamic webpage analysis. v0 was designed, implemented, and deployed all in 4 months, thanks to Windsurf, Claude Code and Opus 4.6.}
+	\resumeItem{URL Defense Oracle}
+	{Developing a multi-call LLM workflow with high precision for a growing number of URL-based threats. Currently offers a second-opinion to SOC analysts; knowledge distillation in process to scale detection in prod.}
+	\resumeItem{Benign Email Data Generation with Differential Privacy}
+    {Finetuned foundation models using Huggingface, Opacus on email corpus from beta customers. Evaluated generations on traditional metrics and classifier training.}
+	\resumeItemListEnd
+	
+		\smallskip
+	\smallskip
+	
+	
+	\resumeSubSubheading{Machine Learning Manager}{April 2022 - May 2024}
+	\resumeItemListStart
+	\resumeItem{ML Platform Team}
+	{Designed a new cross-platform model development framework and CLI using Flyte and MLFlow on k8s to replace SageMaker-centric tooling. 8 different projects still leveraging the framework today.}
+	\resumeItem{DLP ML Team}{Released two features in production: Sensitive Form classification using deep metric learning for 1000's of DLP customers and FP Detection feature using XGBoost and approximate NN for internal triage analysts. Deployed on AWS using Kinesis, ECS, and Lambda. }
+	\resumeItemListEnd
+	\smallskip
+	\smallskip
+	
+	\resumeSubSubheading{Senior Data Scientist \& Data Scientist}{May 2019 - April 2022}
+	\resumeItemListStart
+	\resumeItem{Promissory Images Classifier}{designed and delivered an image classification system for financially promissory image detection. Leveraging object detection, classical ML, and approximate NN. Key differentiator for all finserv customers. Precision/recall maintaining over 24+ months with retrainings and annotation. Created autoscaled ECS deployment.}
 	\resumeItem{NLP Classifier System}{implemented and maintained and scaled a spaCy-centric framework to
-serve 54 NLP classifiers over 100Ks social media posts daily across 1000's of customers. Addressed customers FP/FNs weekly.}
+		serve 54 NLP classifiers over 100Ks social media posts daily across 1000's of customers. Addressed customers FP/FNs weekly.}
 	\resumeItem{Physical Locations Classifier}{constructed custom dataset of 1000's of spans for an NER model to detect mentions of a location
-with an address. Selected DistilBERT over BiLSTM-CRF. Enabled for hundreds of Patrol Security accounts.}
-      \resumeItemListEnd
+		with an address. Selected DistilBERT over BiLSTM-CRF. Enabled for hundreds of Patrol Security accounts.}
+	\resumeItemListEnd
+	
+	\smallskip
+	\smallskip
+	
+	\resumeJob{Automated Insights}{Durham, NC}{Natural language generation startup before NLP had its Imagenet moment. Lead Data Scientist on two projects.}
+	
+	\resumeSubSubheading{Senior Data Scientist \& Data Scientist}{July 2017 - May 2019}
+	\resumeItemListStart
+	\resumeItem{Augmented NLG}
+	{Designed and prototyped a natural language generation system using Node.js, React as an add-on feature for BI dashboards. Published a patent.}
+	\resumeItem{Contextual Synonym Suggester}
+	{Productionized custom word vectors trained using gensim and Common Crawl for synonym suggestion as a Flask microservice. Core ML feature of Wordsmith product.}
+	\resumeItemListEnd
+	
+	\smallskip
+	\smallskip
+	
+		%--\resumeJob{Duke University}{Durham, NC}{PhD Program in Machine Learning Lab led by Larry Carin. Mastered out to take first job at Automated Insights.}
+	
+		%--\resumeSubSubheading{PhD Research Assistant}{Aug 2014 - July 2017}
+		%--\resumeItemListStart
+		%--\resumeItem{Weapons Detection in TSA Bag Scans}
+		%--{Research on VAE and applied object detection (i.e. YOLO, Faster-RCNN) to X-ray images for high-precision detection of guns, knives. Published open-source \href{https://github.com/dancsalo/TensorFlow-VAE}{VAE library} in Tensorflow.}
+		%--\resumeItem{Optical Detection of Cancer}
+		%--{Research on multiple instance learning and applied tree-based models for classifying optical scans of breast cancer tissue. Published open-source \href{https://github.com/dancsalo/TensorFlow-MIL}{MIL library} in Tensorflow.}
+		%--\resumeItemListEnd
+	
+	%-----------PROJECTS-----------------
+\section{Leadership \& Research Impact}
+\resumeSubHeadingListStart
 
-\smallskip
-\smallskip
+\skillsItem{Organizational Leadership \& Architecture}
+{Co-founded new AI/ML team in Cork, Ireland; hired founding manager and initial team members. Co-authored successful IDA (Irish Development Authority) grant proposal on pre-training cybersecurity models, funded with near-perfect evaluation marks.}
 
+\skillsItem{Hiring \& Talent Development}
+{Directed 2 full hiring processes (junior and staff-level engineering); participated in 12+ additional interview panels across engineering and ML roles. Managed full performance lifecycle for direct reports, including structured coaching and formal improvement plans.}
 
-\resumeJob{Automated Insights}{Durham, NC}{Natural language generation startup before NLP had its Imagenet moment. Lead Data Scientist on two projects.}
+\skillsItem{Mentorship \& Academic Collaboration}
+{Mentored 4 summer interns; supervised 2 Duke MIDS teams and 1 UC Berkeley team on applied ML research. Contracted with Washington State University on PU Learning research and translated novel methods into production classification training loops.}
 
-\resumeSubSubheading{Senior Data Scientist \& Data Scientist}{July 2017 - May 2019}
-      \resumeItemListStart
-        \resumeItem{Augmented NLG}
-          {Designed and prototyped a natural language generation system using Node.js, React as an add-on feature for BI dashboards. Published a patent.}
-        \resumeItem{Contextual Synonym Suggester}
-          {Productionized custom word vectors trained using gensim and Common Crawl for synonym suggestion as a Flask microservice. Core ML feature of Wordsmith product.}
-      \resumeItemListEnd
+\skillsItem{Innovation \& External Impact}
+{Named inventor on 3 patents in applied machine learning for cybersecurity. Placed top 3 in 3 company hackathons. Authored 1 technical blog, delivered multiple external presentations and panel discussions.}
 
-
-\smallskip
-\smallskip
-
-\resumeJob{Duke University}{Durham, NC}{PhD Program in Machine Learning Lab led by Larry Carin. Mastered out to take first job at Automated Insights.}
-
-\resumeSubSubheading{PhD Research Assistant}{Aug 2014 - July 2017}
-      \resumeItemListStart
-        \resumeItem{Weapons Detection in TSA Bag Scans}
-          {Research on VAE and applied object detection (i.e. YOLO, Faster-RCNN) to X-ray images for high-precision detection of guns, knives. Published open-source \href{https://github.com/dancsalo/TensorFlow-VAE}{VAE library} in Tensorflow.}
-        \resumeItem{Optical Detection of Cancer}
-          {Research on multiple instance learning and applied tree-based models for classifying optical scans of breast cancer tissue. Published open-source \href{https://github.com/dancsalo/TensorFlow-MIL}{MIL library} in Tensorflow.}
-      \resumeItemListEnd
-
-
-%-----------PROJECTS-----------------
-\section{Technical Skills}
-  \resumeSubHeadingListStart
-   \skillsItem{Languages}{Python, Bash, Git, SQL, Terraform, Javascript, Go}
-  \skillsItem{Techniques}{Linear \& Tree-based Models, CNNs, RNNs, GNNs, Autoencoders, Transformers, Approximate
-NN, Clustering, Knowledge Distillation, Semi-Supervised Classification (PU, Weak, Metric)}
-   \skillsItem{Technologies}{PyTorch, TensorFlow, scikit-learn, XGBoost, NumPy, Pandas, spaCy, Docker,
-OpenCV, Pachyderm, DVC, MLflow, Prefect, k8s, Elasticsearch, Postgres, MySQL, Cassandra, LangChain, VertexAI, SageMaker, AWS/GCP Stack}
-  \resumeSubHeadingListEnd
-
-
-
-
-
+\resumeSubHeadingListEnd
+	
 %-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Duke University}{Durham, NC}
-      {Master of Science in Electrical Engineering}{2014 - 2017}
-    \resumeSubheading
-      {North Carolina State University}{Raleigh, NC}
-      {Bachelor of Science in Biomedical Engineering}{2010 - 2014}
-  \resumeSubHeadingListEnd
-
+	\section{Education}
+	\resumeSubHeadingListStart
+	
+	\resumeEducation
+	{M.S., Electrical Engineering}{Duke University}{2014 - 2017}
+	
+	\resumeEducation
+	{B.S., Biomedical Engineering}{North Carolina State University}{2010 - 2014}
+	
+	\resumeSubHeadingListEnd
 \end{document}

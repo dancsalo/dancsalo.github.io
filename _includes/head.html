@@ -6,6 +6,22 @@
     <meta name="description" content="{{ site.description }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/favicon_io/apple-touch-icon.png" | prepend: site.baseurl }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon_io/favicon-32x32.png" | prepend: site.baseurl }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon_io/favicon-16x16.png" | prepend: site.baseurl }}">
+    <link rel="icon" href="{{ "/assets/favicon_io/favicon.ico" | prepend: site.baseurl }}">
+    <link rel="manifest" href="{{ "/assets/favicon_io/site.webmanifest" | prepend: site.baseurl }}">
+
+    <!-- Dark Mode: load preference before render to prevent flash -->
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme !== 'light') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
     <!-- JQuery Plugin -->
     <script type="text/javascript" src="{{ "/js/highslide.js" | prepend: site.baseurl }}"></script>
     <script type="text/javascript">  hs.graphicsDir = '/assets/graphics/';</script>

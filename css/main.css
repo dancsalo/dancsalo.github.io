@@ -465,3 +465,162 @@ a:visited { color: #205caa; }
     margin: 0 0 15px; }
 
 }
+
+/* Thoughts Layout */
+/* ----------------------------------------------------------*/
+
+.thoughts-stream {
+  margin-top: 2rem;
+}
+
+.thought-item {
+  margin-bottom: 2rem;
+}
+
+.thought-title {
+  font-size: 1.5rem;
+  color: #267CB9;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.thought-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.thought-content {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+ .thought-content > * {
+   margin: 16px 0;
+ }
+
+ .thought-content ul,
+ .thought-content ol {
+   padding-left: 20px;
+   margin-left: 1.35em;
+ }
+
+ .thought-content li {
+   margin: 8px 0;
+ }
+
+.thought-divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 2rem 0;
+}
+
+.thought-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Dark Mode Toggle Button */
+/* ----------------------------------------------------------*/
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 20px;
+  vertical-align: middle;
+  color: #727272;
+  font-size: 20px;
+  line-height: 56px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-toggle:hover {
+  color: #333;
+}
+
+.theme-toggle svg {
+  display: block;
+}
+
+/* Dark Mode Theme */
+/* ----------------------------------------------------------*/
+
+[data-theme="dark"] body {
+  background-color: #1a1a2e;
+  color: #ddd;
+}
+
+[data-theme="dark"] .site-header {
+  background-color: #16213e;
+  border-bottom: 1px solid #444;
+  border-top: 5px solid #79b8ff;
+}
+
+[data-theme="dark"] .site-title,
+[data-theme="dark"] .site-title:hover,
+[data-theme="dark"] .site-title:visited {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .site-nav .page-link {
+  color: #aaa;
+}
+
+[data-theme="dark"] .theme-toggle {
+  color: #aaa;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .page-content {
+  background-color: #1a1a2e;
+}
+
+[data-theme="dark"] a {
+  color: #79b8ff;
+}
+
+[data-theme="dark"] a:hover {
+  color: #fff;
+}
+
+[data-theme="dark"] a:visited {
+  color: #c792ea;
+}
+
+[data-theme="dark"] .site-footer {
+  border-top: 1px solid #444;
+}
+
+[data-theme="dark"] .site-footer li,
+[data-theme="dark"] .site-footer p {
+  color: #aaa;
+}
+
+[data-theme="dark"] .post pre,
+[data-theme="dark"] .post code {
+  border: 1px solid #444;
+  background-color: #0d1117;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .post-content blockquote {
+  border-left: 4px solid #444;
+}
+
+[data-theme="dark"] .t-row-border {
+  border-bottom: 1px solid #444;
+}
+
+[data-theme="dark"] .thought-title {
+  color: #79b8ff;
+}
+
+[data-theme="dark"] .thought-divider {
+  border-top: 1px solid #444;
+}

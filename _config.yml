@@ -1,9 +1,9 @@
 # Site settings
-title: Dan Salo's Blog
-description: "An assortment of elegant Math and simple Code."
+title: Dan Salo
+description: "Tech Lead applying AI/ML to Cybersecurity"
 url: "http://dancsalo.github.io"
-twitter_username: dancsalo
 github_username:  dancsalo
+linkedin_username: dancsalo
 
 # Build settings
 markdown: kramdown
@@ -15,16 +15,17 @@ kramdown:
   auto_ids: true
   syntax_highlighter: rouge
 
+# Collections
+collections:
+  thoughts:
+    output: false
+
 # SEO
-twitter:
-  username: dancsalo
 facebook:
   publisher: 768300382
 social:
   name: Dan Salo
   links:
-    - https://twitter.com/dancsalo
-    - https://www.facebook.com/dancsalo
     - https://www.linkedin.com/in/dancsalo
     - https://github.com/dancsalo
 webmaster_verifications:

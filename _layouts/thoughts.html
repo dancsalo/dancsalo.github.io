@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<div class="thoughts">
+
+  
+  <article class="thoughts-content">
+    {{ content }}
+    
+    <div class="thoughts-stream">
+      {% for thought in site.thoughts reversed %}
+        <div class="thought-item">
+          <h3 class="thought-title">{{ thought.title | default: "Thought" }}</h3>
+          <div class="thought-date">{{ thought.date | date: "%b %-d, %Y" }}</div>
+          <div class="thought-content">{{ thought.content | markdownify }}</div>
+        </div>
+        
+        {% unless forloop.last %}
+        <hr class="thought-divider">
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </article>
+
+</div>
