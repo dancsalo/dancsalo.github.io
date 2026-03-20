@@ -510,6 +510,24 @@ a:visited { color: #205caa; }
    margin: 8px 0;
  }
 
+ .thought-content h1,
+ .thought-content h2,
+ .thought-content h3,
+ .thought-content h4,
+ .thought-content h5,
+ .thought-content h6 {
+   font-weight: 600;
+   margin: 24px 0 12px;
+   line-height: 1.2;
+ }
+
+ .thought-content h1 { font-size: 32px; }
+ .thought-content h2 { font-size: 26px; }
+ .thought-content h3 { font-size: 22px; }
+ .thought-content h4 { font-size: 18px; }
+ .thought-content h5 { font-size: 16px; }
+ .thought-content h6 { font-size: 14px; }
+
 .thought-divider {
   border: none;
   border-top: 1px solid #e8e8e8;
