@@ -9,9 +9,17 @@ sitemap:
   exclude: 'no'
 ---
 
+<h3>Agents</h3>
+<ul>
+ <li><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic: Agents</a> - Terminology between Workflow and Agents. Reminds me of <a href="https://developers.google.com/machine-learning/guides/rules-of-ml">Google's Rules for ML</a>.</li>
+ <li><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic: Evals</a> - Explains the need for the evaluation harness as well as the agent harness. Don't reivent the DS wheel: use tried and true tools (A/B tests) to compare performance.</li>
+ <li><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy: LLM Wiki</a> - Make an LLM manage your knowledge base, just like it manages your codebase.</li>
+</ul>
+
 <h3>AI Coding</h3>
 <ul>
   <li><a href="https://www.youtube.com/watch?v=mZzhfPle9QU">Claude Code Walkthrough</a> - Best tutorial I've found on Claude Code setup.</li>
+  <li><a href="https://www.youtube.com/watch?v=BEKc4P87XKo">AIE: Agentic Engineering</a> - Concise graphic showing 4 ways to manage the context window.</li>
 </ul>
 
 <h3>Transformers</h3>
