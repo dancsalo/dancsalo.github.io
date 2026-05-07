@@ -1,0 +1,205 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage[left=2.2cm,right=2.2cm,bottom=2.2cm,top=1.5cm]{geometry}
+\usepackage{tabularx}
+\usepackage{scrextend}
+
+\usepackage{iftex}
+
+\ifPDFTeX
+\IfFileExists{glyphtounicode.tex}{\input{glyphtounicode.tex}}{}%
+\pdfgentounicode=1
+\fi
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+	\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule]
+
+\newcommand{\resumeEducation}[3]{
+    \item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} --- #2 & \textit{#3} \\
+	\end{tabular*}
+}
+\newcommand{\resumeItem}[2]{
+	\item\small{
+		\textbf{#1}{: #2}
+	}
+}
+\newcommand{\skillsItem}[2]{
+	\item\small{
+		\textbf{#1}{: #2}
+	}
+}
+
+\newcommand{\mllibs}[1]{\texttt{\small #1}}
+
+\newcommand{\resumeJobDesc}[1]{
+	\vspace{0pt}
+	\begin{itemize}[leftmargin=0.4in, itemsep=0pt, topsep=2pt]
+		\item \small{#1}
+	\end{itemize}
+}
+\newcommand{\resumeJobWithDate}[3]{
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & \textit{#2} \\
+	\end{tabular*}
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \item
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{\small{#3}} & \textit{\small{#4}} \\
+	\end{tabular*}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+	\begin{addmargin}[1em]{0em}
+		\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+			\textit{#1} & \textit{\small #2} \\
+		\end{tabular*}
+	\end{addmargin}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]}
+	\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=2pt, topsep=3pt]}
+	\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\newcommand{\resumeJob}[3]{
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+	\end{tabular*}
+	\small{#3} 
+}
+
+\begin{document}
+	
+	\begin{minipage}[t][1cm][b]{0.3\textwidth}
+		\hspace{-\hoffset}\raggedright \Huge \usefont{OT1}{phv}{b}{n} Dan Salo \normalsize
+	\end{minipage}
+	\begin{minipage}[t][1.2cm][b]{0.69\textwidth}
+		\footnotesize
+		\raggedleft
+		\texttt{dancsalo [at] gmail.com} \hspace{0.1cm}\textbullet \hspace{0.1cm} (919) 698-2742 \\
+		\texttt{\href{https://github.com/dancsalo}{Github}} \hspace{0.1cm}\textbullet \hspace{0.1cm}
+		\texttt{\href{https://www.linkedin.com/in/dancsalo/}{LinkedIn}} \hspace{0.1cm}\textbullet \hspace{0.1cm}
+		\texttt{\href{https://dancsalo.github.io}{Website}}
+		\vspace{1pt}
+		\\ Durham, NC, USA
+	\end{minipage}
+	
+	
+	\section{Experience}
+	\resumeJob{Proofpoint}{}{}
+		\vspace{3pt}
+	
+	\resumeSubSubheading{Staff Machine Learning Scientist}{May 2024 - Present}
+	\resumeItemListStart
+	\resumeItem{Suspicious Webpage Agent}
+	{Technical architect for new AI/ML team in Cork, Ireland. Deployed a browser-use agent with finetuned vision router and novel skills, such as CAPTCHA evasion, to scan 3+ million URLs / day. Built in-house agent framework on top of claude-agents. Coordinating Claude Code best practices across the team. Result: freed up an entire FTE threat analyst from rule-writing. ML Libraries: \mllibs{PyTorch, Huggingface}.}
+	
+	\resumeItem{URL Defense Oracle}
+	{Developed a high-precision, multi-call LLM workflow for detecting evolving URL-based threats. Implemented multi-GPU SFT, CPT pipelines using DeepSpeed for pretraining and knowledge distillation of multimodal QwenVL models and billions of URL-based threat tokens. Seeking reduction in analyst time to complete novel URL-based threat remediation. Langfuse for prompt management and LiteLLM for proxying. ML Libraries: \mllibs{Huggingface}.}
+	\resumeItemListEnd
+	
+	\vspace{4pt}
+	
+	\resumeSubSubheading{Machine Learning Manager \& Tech Lead}{April 2022 - May 2024}
+	\resumeItemListStart
+	
+	\resumeItem{Training \& Workflow System (ML Platform)}
+	{Tech lead for ML training and experimentation workflows using Flyte, MLflow, and Postgres. Built production-grade CLI and artifact management system for reproducible training and tracking. Reduced time-to-production for models from 3 months to 3 weeks and improved observability, cost control.}
+	
+	\resumeItem{Real-Time Triage System (DLP)}
+	{Team of 3 engineers delivering high-throughput ML inference system for SIEM alert triage. Event-driven architecture using AWS Lambdas, Kinesis, and ECS. Saved analysts 2--4 hours per week of manual review, resulting in \$10K+ monthly cost savings. ML Libraries: \mllibs{scikit-learn}.}
+	
+	\resumeItem{Form Detection Service (DLP)}
+	{Tech Lead for the development of a distributed nearest-neighbor computer vision system for custom form detection over batched image data. Built async job runner deployed as a scalable microservice on Kubernetes. ML Libraries: \mllibs{PyTorch, scikit-learn}.}
+	
+	\resumeItemListEnd
+	
+	\vspace{4pt}
+	
+	\resumeSubSubheading{Senior Data Scientist \& Data Scientist}{May 2019 - April 2022}
+	\resumeItemListStart
+	
+	\resumeItem{NLP Classifier System}
+	{Designed and operated load-balanced, distributed inference platform on ECS serving 54 NLP classifiers across 1000's of customers classifying 5M+ social media posts/week. Reduced time to remediate customer FPs/FNs from 1 day/week to 2 hours/week with new rule DSL. ML Libraries: \mllibs{spaCy, scikit-learn}.}
+	
+	\resumeItem{DL Multimodal Classifiers}
+	{Built and productionized deep learning text, span, and image classifiers (YOLOv3, DistilBERT). Managed labeling teams for semi-annual retrainings, maintaining 0.8 precision for all classifiers while expanding recall. These features secured \$500K+ in deals with finserv clients. ML Libraries: \mllibs{TensorFlow, PyTorch}.}
+	
+	\resumeItemListEnd
+	
+	\resumeJobWithDate{Automated Insights}{July 2017 - May 2019}{}
+	\vspace{1pt}
+	
+	\resumeJobDesc{Lead Data Scientist on two core ML features for \href{https://wordsmith.automatedinsights.com/gallery}{Wordsmith} product of Natural Langauge Generation startup. Created BI dashboard insights recommender system and contextual synonym suggester. ML Libraries: \mllibs{gensim}.}
+	
+	
+	\resumeJobWithDate{Duke University}{August 2014 - June 2017}{}
+	\vspace{1pt}
+	
+	\resumeJobDesc{PhD Student in ML Research Lab under Dr. Larry Carin. Trained object detection model on X-ray scan data for identifying weapons in TSA baggage. Integrated Rapiscan, Smiths Detection scanners. ML Libraries: \mllibs{TensorFlow}.}
+	
+	\section{Leadership \& Research Impact}
+	\resumeSubHeadingListStart
+	
+	\skillsItem{Organizational Leadership}
+	{Co-founded new AI/ML team in Cork, Ireland; hired founding manager and initial team members (2025). Co-authored successful IDA grant proposal on pre-training for cybersecurity models.}
+	
+	\skillsItem{Hiring \& Talent Development}
+	{Directed 2 full hiring processes (junior and staff-level); participated in 12+ additional interview panels across the org. Managed full performance lifecycle for direct reports, including formal improvement plans.}
+	
+	\skillsItem{Innovation \& External Impact}
+	{Named inventor on 3 patents in applied machine learning for cybersecurity: \href{https://dancsalo.github.io/assets/about/patents/patent_aug_nlg.pdf}{Augmented NLG}, \href{https://dancsalo.github.io/assets/about/patents/patent_promissory.pdf}{Promissory Images}, and \href{https://dancsalo.github.io/assets/about/patents/patent_cyberthreats.pdf}{NLP Classifier System}. Placed top 3 in 3 company hackathons. Authored 1 \href{https://www.proofpoint.com/us/blog/engineering-insights/development-of-the-promissory-images-classifier}{technical blog}, delivered multiple external presentations and panel discussions.}
+	
+	\resumeSubHeadingListEnd
+
+	
+	\section{Education}
+	\resumeSubHeadingListStart
+	
+	\resumeEducation
+	{M.S., Electrical Engineering}{Duke University}{2014 - 2017}
+	
+	\resumeEducation
+	{B.S., Biomedical Engineering}{North Carolina State University}{2010 - 2014}
+	
+	\resumeSubHeadingListEnd
+	
+\end{document}

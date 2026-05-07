@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.20)  5 MAY 2026 11:17
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.20)  5 MAY 2026 11:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**letter_new.tex
-(./letter_new.tex
+**resume_full_12.tex
+(./resume_full_12.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22>
 (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
@@ -338,38 +338,40 @@ File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 \g__pdf_backend_annotation_int=\count278
 \g__pdf_backend_link_int=\count279
 )
-(./letter_new.aux)
-\openout1 = `letter_new.aux'.
+(./resume_full_12.aux)
+\openout1 = `resume_full_12.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
-7.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 109.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+09.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-Package hyperref Info: Link coloring OFF on input line 47.
- (./letter_new.out) (./letter_new.out)
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+Package hyperref Info: Link coloring OFF on input line 109.
+
+(./resume_full_12.out) (./resume_full_12.out)
 \@outlinefile=\write3
-\openout3 = `letter_new.out'.
+\openout3 = `resume_full_12.out'.
 
 
 *geometry* driver: auto-detecting
@@ -406,11 +408,28 @@ Package hyperref Info: Link coloring OFF on input line 47.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 5
-2.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
+12.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 127.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 127.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 127.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 12
+7.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 130.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 130.
+
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 4.08003pt, for example:
@@ -418,17 +437,17 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1
 
-] (./letter_new.aux)
-Package rerunfilecheck Info: File `letter_new.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+] (./resume_full_12.aux)
+Package rerunfilecheck Info: File `resume_full_12.out' has not changed.
+(rerunfilecheck)             Checksum: 32889EF2F56E112F94C0CE064AB86F7A;376.
  ) 
 Here is how much of TeX's memory you used:
- 11550 strings out of 476683
- 190027 string characters out of 5804047
- 1855018 words of memory out of 5000000
- 31655 multiletter control sequences out of 15000+600000
- 513767 words of font info for 41 fonts, out of 8000000 for 9000
+ 11630 strings out of 476683
+ 191533 string characters out of 5804047
+ 1876018 words of memory out of 5000000
+ 31712 multiletter control sequences out of 15000+600000
+ 517190 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,11n,106p,581b,342s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,11n,106p,662b,342s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on letter_new.pdf (1 page).
+Output written on resume_full_12.pdf (1 page).
